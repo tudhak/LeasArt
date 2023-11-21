@@ -27,6 +27,11 @@
   padding: 10px;
 }
 
+.togglable-menu {
+  display: flex;
+  flex-direction: column;
+}
+
 .menu-button {
   display: flex;
   gap: 15px;
