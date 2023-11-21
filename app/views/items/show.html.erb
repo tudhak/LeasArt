@@ -1,29 +1,25 @@
 <%# block top %>
-<div class="card mb-3" style="max-width: 540px;">
-  <div class="row g-0">
-    <div class="col-md-4">
-      <img src="..." class="img-fluid rounded-start" alt="...">
-    </div>
-    <div class="col-md-8">
-      <div class="card-body">
-        <h5 class="card-title"><%=@item.title%></h5>
-        <p class="card-text"> <%=@item.description<%> </p>
-        <p class="card-text"><small class="text-body-secondary"></small><%=@item.artist%></p>
-      </div>
-    </div>
+
+<div class="card-product">
+  <%= image_tag "monet.webp", alt: "Le plus beau tableau du monde" %>
+  <div class="card-product-infos">
+    <h2><%=@item.title%></h2>
+    <p><%=@item.description %></p>
+    <p><%=@item.artist%></p>
   </div>
 </div>
+
 <%# block bottom %>
 <div class="card text-center">
-  <div class="card-header">
-    <%=@item.user_id%>
-  </div>
   <div class="card-body">
+    <%=@item.user_id%>
     <h5 class="card-title">Booking dates:</h5>
-    <p class="card-text"><%=" From:#{@booking.start_date}, To:#{@booking.end_date}"%></p>
-    <a href="#" class="btn btn-primary"> <% link_to "booking_page_id"%></a>
+    <p> Price: <%= @item.price%>€</p>
+    <%# <p class="card-text"><%=" From:#{@booking.start_date}, To:#{@booking.end_date}"</p> %>
+   <%= link_to item_path(@item) do  %>
+  <a href="#" class="btn btn-primary">Book</a>
+  <% end %>
   </div>
-  <%# <div class="card-footer text-body-secondary">
-
-  </div> %>
+  <div class="card-footer text-body-secondary">
+  </div>
 </div>
