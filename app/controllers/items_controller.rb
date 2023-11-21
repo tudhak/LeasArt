@@ -2,9 +2,12 @@ class ItemsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
   before_action :set_item, only: [:show, :edit, :update, :destroy]
 
+  def my_items
+    @my_items = current_user.items
+  end
+
   def index
     @items = Item.all
-    # utiliser la méthode current_user pour afficher les items d'un propriétaire
   end
 
   def results
@@ -23,7 +26,7 @@ class ItemsController < ApplicationController
     @item = current_user.items.build(item_params)
 
     if @item.save
-      redirect_to list_path(@item), notice: 'Item was successfully created.'
+      redirect_to item_path(@item), notice: 'Item was successfully created.'
     else
       render :new, status: :unprocessable_entity
     end
@@ -42,7 +45,7 @@ class ItemsController < ApplicationController
 
   def destroy
     @item.destroy
-    redirect_to items_url, notice: 'Item was successfully destroyed.'
+    redirect_to items_path, notice: 'Item was successfully destroyed.'
   end
 
   private
