@@ -8,6 +8,11 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 
+Item.destroy_all
+User.destroy_all
+
+# Item generation
+
 Item.create(
   title: "Le radeau de la Méduse",
   description: "Un grand tableau de maître",
@@ -56,4 +61,40 @@ Item.create(
   category: "furniture",
   artist: "inconnu",
   address: "61, rue Stanislas"
+)
+
+Item.create(
+  title: "Casque de Vércingétorix",
+  description: "Parfait pour tous les maux de crâne",
+  price: 65,
+  user_id: 3,
+  category: "decoration",
+  artist: "inconnu",
+  address: "138, rue Stic"
+)
+
+Item.create(
+  title: "Pouf en antilope",
+  description: "Le confort, c'est trop fort",
+  price: 33,
+  user_id: 2,
+  category: "furniture",
+  artist: "Jimmy McSkin",
+  address: "42, rue Tabeuge"
+)
+
+Item.create(
+  title: "Sculpture de dieu aztèque",
+  description: "Cette sculpture impose le respect",
+  price: 211,
+  user_id: 1,
+  category: "",
+  artist: "Jimmy McSkin",
+  address: "42, rue Tabeuge"
+)
+
+# User generation
+
+User.create(
+  title:
 )
