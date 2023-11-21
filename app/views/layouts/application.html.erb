@@ -12,11 +12,20 @@
   </head>
 
   <body>
+    <nav class="navbar-lewagon">
+      <div class="navbar-elements">
+        <%= link_to root_path do %>
+          <%= image_tag "logo.png", alt: "logo", width: 200 %>
+        <% end %>
+        <%= link_to new_user_registration_path, class:"menu-button" do %>
+          <span><i class="fa-solid fa-bars navbar-menu"></i></span>
+          <span><i class="fa-solid fa-user navbar-user"></i></span>
+        <% end %>
+      </div>
+    </nav>
     <%= yield %>
 
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
-
-
   </body>
 </html>

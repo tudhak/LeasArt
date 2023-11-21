@@ -2,9 +2,12 @@ class ItemsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
   before_action :set_item, only: [:show, :edit, :update, :destroy]
 
+  def my_items
+    @my_items = current_user.items
+  end
+
   def index
-    @items = current_user.items
-    # utiliser la méthode current_user pour afficher les items d'un propriétaire
+    @items = Item.all
   end
 
   def results
@@ -12,6 +15,7 @@ class ItemsController < ApplicationController
   end
 
   def show
+    @item = Item.find(params[:id])
   end
 
   def new

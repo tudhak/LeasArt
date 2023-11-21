@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_11_20_170532) do
+ActiveRecord::Schema[7.1].define(version: 2023_11_21_140711) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -20,7 +20,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_20_170532) do
     t.string "status"
     t.bigint "item_id", null: false
     t.bigint "user_id", null: false
-    t.decimal "total_price"
+    t.float "total_price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["item_id"], name: "index_bookings_on_item_id"
@@ -30,7 +30,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_20_170532) do
   create_table "items", force: :cascade do |t|
     t.string "title", null: false
     t.text "description"
-    t.decimal "price"
+    t.float "price"
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

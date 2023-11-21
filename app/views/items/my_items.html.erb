@@ -1,0 +1,15 @@
+<h1>My Items</h1>
+
+<% if @my_items.any? %>
+  <% @my_items.each do |item| %>
+    <div>
+      <h3><%= link_to item.title, item %></h3>
+      <p><%= item.description %></p>
+
+    </div>
+  <% end %>
+<% else %>
+  <p>You don't have any items yet.</p>
+<% end %>
+
+<%= link_to 'Back', items_path %>
