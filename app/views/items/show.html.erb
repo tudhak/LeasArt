@@ -20,7 +20,7 @@
   <%= link_to 'Delete', item_path(@item), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
 <% else %>
   <%# Display booking option for non-owners %>
-  <%= link_to 'Book Now', new_booking_path(item_id: @item.id), class: "btn btn-primary" %>
+  <%= link_to 'Book Now', new_item_booking_path(item_id: @item.id), class: "btn btn-primary" %>
 <% end %>
 
 <%= link_to 'Back', items_path %>
