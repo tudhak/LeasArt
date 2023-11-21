@@ -13,11 +13,11 @@
   <body>
     <nav class="navbar-lewagon">
       <div class="navbar-elements">
-        <img src="../../app/assets/images/logoleasart.svg" alt="logo-leasart">
-          <a class="menu-button">
-            <span><i class="fa-solid fa-bars navbar-menu"></i></span>
-            <span><i class="fa-solid fa-user navbar-user"></i></span>
-          </a>
+        <%= image_tag "logo.png", alt: "logo", width: 200 %>
+        <a class="menu-button">
+          <span><i class="fa-solid fa-bars navbar-menu"></i></span>
+          <span><i class="fa-solid fa-user navbar-user"></i></span>
+        </a>
       </div>
     </nav>
     <%= yield %>
