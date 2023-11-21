@@ -6,4 +6,9 @@ class ItemsController < ApplicationController
   def index
    # utiliser la méthode current_user pour afficher les items d'un propriétaire
   end
+
+  def results
+    @items = Item.all
+  end
+
 end
