@@ -36,9 +36,10 @@
   flex-direction: column;
   border: 1px solid #5B5B5B;
   position: absolute;
-  bottom: -74px;
-  left: 0px;
-  z-index: 20042;
+  // bottom: -74px;
+  // left: 0px;
+  z-index: 1;
+  box-shadow: 2px 2px 3px #969696;
 }
 
 .menu-button {
@@ -64,6 +65,12 @@
   text-decoration: none;
   cursor: pointer;
   background-color: #fff;
+  display: block;
+  flex: 1;
+}
+
+.actions-signed-in {
+  width: 114px;
 }
 
 .menu-actions:hover {

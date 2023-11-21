@@ -18,7 +18,7 @@
           <%= image_tag "logo.png", alt: "logo", width: 200 %>
         <% end %>
         <div data-controller="dropdown-navbar" class="menu-container">
-          <div class="menu-button" data-action="mouseover->dropdown-navbar#mouse">
+          <div class="menu-button" data-action="click->dropdown-navbar#click">
             <div class="menu-icons">
               <span><i class="fa-solid fa-bars navbar-menu"></i></span>
               <span><i class="fa-solid fa-user navbar-user"></i></span>
@@ -30,9 +30,9 @@
               <%= link_to 'Create account', new_user_registration_path, class:"menu-actions" %>
             <% end %>
             <% if user_signed_in? %>
-              <%= link_to 'My items', items_my_items_path, class:"menu-actions" %>
-              <%= link_to 'Edit profile', edit_user_registration_path, class:"menu-actions" %>
-              <%= link_to 'Log out', destroy_user_session_path, data: {turbo_method: :delete, turbo_confirm: "Do you want to log out?"}, class:"menu-actions" %>
+              <%= link_to 'My items', items_my_items_path, class:"menu-actions actions-signed-in" %>
+              <%= link_to 'Edit profile', edit_user_registration_path, class:"menu-actions actions-signed-in" %>
+              <%= link_to 'Log out', destroy_user_session_path, data: {turbo_method: :delete, turbo_confirm: "Do you want to log out?"}, class:"menu-actions actions-signed-in" %>
             <% end %>
           </div>
         </div>
