@@ -1,0 +1,35 @@
+
+<h4 class="text-center"> Find the perfcet an art piece for your interior! </h4>
+
+<div class="row">
+  <% @items.each do |item|%>
+    <div class="col-md-4">
+      <div class="flat-card">
+        <div class="flat-card-image"></div>
+        <div class="flat-card-content">
+          <div class="flat-card-title">
+          <h4><%= item.title  %></h4>
+          </div>
+          <p><%= item.address %></p>
+          <div class="flex">
+            <div class="flex align-items-center">
+              <i class="fa-solid fa-people-line"></i>
+              <span><%= item.category %></span>
+            </div>
+            <div class="flex align-items-center ms-3">
+              <i class="fa-solid fa-euro-sign"></i>
+              <span><%= item.price %></span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="flat-card-actions">
+        <%= link_to "Show details", item_path(item) %>
+      </div>
+    </div>
+
+
+      </div>
+
+        <% end %>
+</div>
