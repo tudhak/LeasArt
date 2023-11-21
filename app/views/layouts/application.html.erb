@@ -18,15 +18,19 @@
           <%= image_tag "logo.png", alt: "logo", width: 200 %>
         <% end %>
         <div data-controller="dropdown-navbar">
-          <%= link_to new_user_registration_path, class:"menu-button" do %>
-            <span><i class="fa-solid fa-bars navbar-menu"></i></span>
-            <span><i class="fa-solid fa-user navbar-user"></i></span>
-             <div class="togglable-menu d-none" data-dropdown-navbar-target="togglableMenu" data-action="mousein->dropdown-navbar#mouse" >
-              <div><p>Log in</p></div>
-              <div><p>Create account</p></div>
-              <div><p>Log out</p></div>
-            </div>
-          <% end %>
+          <div data-action="mouseover->dropdown-navbar#mouse">
+            <%= link_to new_user_registration_path, class:"menu-button" do %>
+              <div class="menu-icons">
+                <span><i class="fa-solid fa-bars navbar-menu"></i></span>
+                <span><i class="fa-solid fa-user navbar-user"></i></span>
+              </div>
+              <div class="togglable-menu d-none" data-dropdown-navbar-target="togglableMenu">
+                <div><p class="menu-actions">Log in</p></div>
+                <div><p class="menu-actions">Create account</p></div>
+                <div><p class="menu-actions">Log out</p></div>
+              </div>
+            <% end %>
+          </div>
         </div>
       </div>
     </nav>

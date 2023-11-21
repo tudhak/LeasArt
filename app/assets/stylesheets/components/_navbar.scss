@@ -34,6 +34,7 @@
 
 .menu-button {
   display: flex;
+  flex-direction: column;
   gap: 15px;
   align-items: center;
   border: 1px solid #5B5B5B;
@@ -42,6 +43,15 @@
   box-shadow: 2px 2px 3px #969696;
   text-decoration: none;
   color: #313131;
+}
+
+.menu-icons {
+  display: flex;
+}
+
+.menu-actions {
+  text-align: center;
+  color: #000;
 }
 
 .menu-button:hover {
