@@ -14,11 +14,13 @@
   <body>
     <nav class="navbar-lewagon">
       <div class="navbar-elements">
-        <%= image_tag "logo.png", alt: "logo", width: 200 %>
-        <a class="menu-button">
+        <%= link_to root_path do %>
+          <%= image_tag "logo.png", alt: "logo", width: 200 %>
+        <% end %>
+        <%= link_to new_user_registration_path, class:"menu-button" do %>
           <span><i class="fa-solid fa-bars navbar-menu"></i></span>
           <span><i class="fa-solid fa-user navbar-user"></i></span>
-        </a>
+        <% end %>
       </div>
     </nav>
     <%= yield %>
