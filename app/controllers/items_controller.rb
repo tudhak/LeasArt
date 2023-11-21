@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :authenticate_user!, except: [:index, :show]
+  before_action :authenticate_user!, except: [:index, :show, :index]
   before_action :set_item, only: [:show, :edit, :update, :destroy]
 
   def my_items
@@ -7,11 +7,12 @@ class ItemsController < ApplicationController
   end
 
   def index
-    @items = Item.all
-  end
-
-  def results
-    # items where address == userinput
+    if params[:category].present?
+      @category = params[:category].capitalize
+      @items = Item.where(category: @category)
+    else
+      @items = Item.all
+    end
   end
 
   def show
@@ -57,4 +58,5 @@ class ItemsController < ApplicationController
   def item_params
     params.require(:item).permit(:title, :description, :price, :category, :artist, :address)
   end
+
 end

@@ -2,7 +2,7 @@
   <%= f.input :title %>
   <%= f.input :artist %>
   <%= f.input :description %>
-  <%= f.input :category %>
+  <%= f.input :category, collection: Item::CATEGORY %>
   <%= f.input :price %>
   <%= f.input :address %>
   <%= f.submit %>
