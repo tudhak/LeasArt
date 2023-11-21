@@ -7,7 +7,7 @@
   <div class="cards">
     <% @categories.each do |category|%>
       <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
-        <%= link_to "#{category}", items_path %>
+        <%= link_to "#{category}", items_path(category: category.downcase), class:"text-decoration-none text-white" %>
       </div>
     <% end %>
   </div>

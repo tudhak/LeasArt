@@ -3,8 +3,13 @@ class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :edit, :update, :destroy]
 
   def index
-    @items = Item.all
-    # utiliser la méthode current_user pour afficher les items d'un propriétaire
+    # raise
+    if params[:category].present?
+      @category = params[:category].capitalize
+      @items = Item.where(category: @category)
+    else
+      @items = Item.all
+    end
   end
 
   def show
