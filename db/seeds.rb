@@ -11,6 +11,12 @@
 Item.destroy_all
 User.destroy_all
 
+# User generation
+
+User.create(
+  title:
+)
+
 # Item generation
 
 Item.create(
@@ -68,7 +74,7 @@ Item.create(
   description: "Parfait pour tous les maux de crâne",
   price: 65,
   user_id: 3,
-  category: "decoration",
+  category: Item::CATEGORY[1],
   artist: "inconnu",
   address: "138, rue Stic"
 )
@@ -78,7 +84,7 @@ Item.create(
   description: "Le confort, c'est trop fort",
   price: 33,
   user_id: 2,
-  category: "furniture",
+  category: Item::CATEGORY[2],
   artist: "Jimmy McSkin",
   address: "42, rue Tabeuge"
 )
@@ -88,13 +94,47 @@ Item.create(
   description: "Cette sculpture impose le respect",
   price: 211,
   user_id: 1,
-  category: "",
-  artist: "Jimmy McSkin",
-  address: "42, rue Tabeuge"
+  category: Item::CATEGORY[3],
+  artist: "Oropeu u' Upureo",
+  address: "La Mésopotamie"
 )
 
-# User generation
+Item.create(
+  title: "Buste de foan en émeraude",
+  description: "Préparez-vous à être éblouis",
+  price: 10_000,
+  user_id: 4,
+  category: Item::CATEGORY[4],
+  artist: "Balance I. Haga",
+  address: "300 rue de la Richesse"
+)
 
-User.create(
-  title:
+Item.create(
+  title: "Topazes pas nazes",
+  description: "La scintillance à l'état pur",
+  price: 1_320,
+  user_id: 4,
+  category: Item::CATEGORY[4],
+  artist: "Jay R. Mess",
+  address: "108, Boulevard Saint Honoré"
+)
+
+Item.create(
+  title: "Les doigts de Zeus",
+  description: "La foudre dans la main",
+  price: 680,
+  user_id: 2,
+  category: Item::CATEGORY[3],
+  artist: "Feu le sculpteur",
+  address: "51, boulevard Arboise"
+)
+
+Item.create(
+  title: "La passion de Zaya",
+  description: "Un camaïeu d'émotions en couleur",
+  price: 45,
+  user_id: 3,
+  category: Item::CATEGORY[1],
+  artist: "Ben Z. Hemah",
+  address: "63, villa Stadium"
 )
