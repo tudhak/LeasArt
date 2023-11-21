@@ -1,4 +1,5 @@
-<%# block top %>
+
+
 <div class="card mb-3" style="max-width: 540px;">
   <div class="row g-0">
     <div class="col-md-4">
@@ -6,24 +7,22 @@
     </div>
     <div class="col-md-8">
       <div class="card-body">
-        <h5 class="card-title"><%=@item.title%></h5>
-        <p class="card-text"> <%=@item.description<%> </p>
-        <p class="card-text"><small class="text-body-secondary"></small><%=@item.artist%></p>
+        <h5 class="card-title"><%= @item.title %></h5>
+        <p class="card-text"><%= @item.description %></p>
+        <p class="card-text"><small class="text-body-secondary"><%= @item.artist %></small></p>
       </div>
     </div>
   </div>
 </div>
-<%# block bottom %>
-<div class="card text-center">
-  <div class="card-header">
-    <%=@item.user_id%>
-  </div>
-  <div class="card-body">
-    <h5 class="card-title">Booking dates:</h5>
-    <p class="card-text"><%=" From:#{@booking.start_date}, To:#{@booking.end_date}"%></p>
-    <a href="#" class="btn btn-primary"> <% link_to "booking_page_id"%></a>
-  </div>
-  <%# <div class="card-footer text-body-secondary">
 
-  </div> %>
-</div>
+
+<%# Display edit and delete links for the item owner %>
+<% if current_user && @item.user == current_user %>
+  <%= link_to 'Edit', edit_item_path(@item) %>
+  <%= link_to 'Delete', item_path(@item), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
+<% else %>
+  <%# Display booking option for non-owners %>
+  <%= link_to 'Book Now', new_booking_path(item_id: @item.id), class: "btn btn-primary" %>
+<% end %>
+
+<%= link_to 'Back', items_path %>
