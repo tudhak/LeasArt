@@ -1,2 +1,14 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="container">
+  <div class="d-flex justify-content-center my-5">
+    <a href="/items" class="btn btn-primary">Browse all of our art pieces</a>
+  </div>
+
+  <h4 class="text-center"> Browse by category! </h4>
+  <div class="cards">
+    <% @categories.each do |category|%>
+      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
+        <%= link_to "#{category}", items_path(category: category.downcase), class:"text-decoration-none text-white" %>
+      </div>
+    <% end %>
+  </div>
+</div>
