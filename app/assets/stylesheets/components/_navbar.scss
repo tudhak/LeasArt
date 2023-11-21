@@ -27,10 +27,18 @@
   padding: 10px;
 }
 
+.menu-container{
+  position: relative;
+}
+
 .togglable-menu {
   display: flex;
   flex-direction: column;
   border: 1px solid #5B5B5B;
+  position: absolute;
+  bottom: -50px;
+  left: 0px;
+  z-index: 20042;
 }
 
 .menu-button {
@@ -40,7 +48,7 @@
   align-items: center;
   border: 1px solid #5B5B5B;
   padding: 10px 15px;
-  border-radius: 25px;
+  // border-radius: 25px;
   box-shadow: 2px 2px 3px #969696;
   text-decoration: none;
   color: #313131;
@@ -55,6 +63,7 @@
   color: #2B3467;
   text-decoration: none;
   cursor: pointer;
+  background-color: #fff;
 }
 
 .menu-actions:hover {
