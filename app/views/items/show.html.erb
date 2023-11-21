@@ -1,0 +1,11 @@
+<h1><%= @item.title %></h1>
+
+<p><%= @item.description %></p>
+<p><strong>Price:</strong> <%= @item.price %></p>
+<p><strong>Category:</strong> <%= @item.category %></p>
+<p><strong>Artist:</strong> <%= @item.artist %></p>
+<p><strong>Address:</strong> <%= @item.address %></p>
+
+<%= link_to 'Edit', edit_item_path(@item)%>
+<%= link_to 'Delete', item_path(@item), data: { turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+<%= link_to 'Back', items_path %>
