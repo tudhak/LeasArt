@@ -14,7 +14,35 @@ User.destroy_all
 # User generation
 
 User.create(
-  title:
+  email: "jeanpaulbelmondo@ubs.ch",
+  encrypted_password: "abcdef",
+  first_name: "Jean-Paul",
+  last_name: "Belmondo",
+  description: "Je suis un beau gosse thuné et j'ai joué dans plein de films"
+)
+
+User.create(
+  email: "sophie.davant@tiscali.fr",
+  encrypted_password: "ghijkl",
+  first_name: "Sophie",
+  last_name: "Davant",
+  description: "Je fais la pluie et le beau temps"
+)
+
+User.create(
+  email: "jeanlucmeluche@cgt.fr",
+  encrypted_password: "mnopqr",
+  first_name: "Jean-Luc",
+  last_name: "Meluche",
+  description: "Pour le peuple, par le peuple"
+)
+
+User.create(
+  email: "Carlosghosn@bigbank.com",
+  encrypted_password: "stuvwx",
+  first_name: "Carlos",
+  last_name: "Ghosn",
+  description: "Je suis un individu honnête et intègre"
 )
 
 # Item generation
