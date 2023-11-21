@@ -18,21 +18,23 @@
           <%= image_tag "logo.png", alt: "logo", width: 200 %>
         <% end %>
         <div data-controller="dropdown-navbar">
-          <div data-action="mouseover->dropdown-navbar#mouse">
-            <%= link_to new_user_registration_path, class:"menu-button" do %>
+            <div class="menu-button" data-action="mouseover->dropdown-navbar#mouse">
               <div class="menu-icons">
                 <span><i class="fa-solid fa-bars navbar-menu"></i></span>
                 <span><i class="fa-solid fa-user navbar-user"></i></span>
               </div>
-              <div class="togglable-menu d-none" data-dropdown-navbar-target="togglableMenu">
-                <div><p class="menu-actions">Log in</p></div>
-                <div><p class="menu-actions">Create account</p></div>
-                <div><p class="menu-actions">Log out</p></div>
-              </div>
+            </div>
+          <div class="togglable-menu d-none" data-dropdown-navbar-target="togglableMenu">
+             <% unless user_signed_in? %>
+              <%= link_to 'Log in', new_user_session_path, class:"menu-actions" %>
+              <%= link_to 'Create account', new_user_registration_path, class:"menu-actions" %>
+            <% end %>
+            <% if user_signed_in? %>
+              <%= link_to 'Log out', destroy_user_session_path, class:"menu-actions" %>
+              <%= link_to 'Edit profile', edit_user_registration_path, class:"menu-actions" %>
             <% end %>
           </div>
         </div>
-      </div>
     </nav>
     <%= yield %>
 

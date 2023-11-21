@@ -30,6 +30,7 @@
 .togglable-menu {
   display: flex;
   flex-direction: column;
+  border: 1px solid #5B5B5B;
 }
 
 .menu-button {
@@ -51,7 +52,13 @@
 
 .menu-actions {
   text-align: center;
-  color: #000;
+  color: #2B3467;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.menu-actions:hover {
+  background-color: #BAD7E9;
 }
 
 .menu-button:hover {
