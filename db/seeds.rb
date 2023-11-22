@@ -108,7 +108,7 @@ Item.create!(
   user_id: User.first.id + 2,
   category: Item::CATEGORY[1][:name],
   artist: "inconnu",
-  address: "138, rue Stic"
+  address: "100, avenue d'argenteuil 92600 Asnières-sur-seine"
 )
 
 Item.create!(
@@ -118,7 +118,7 @@ Item.create!(
   user_id: User.first.id + 1,
   category: Item::CATEGORY[2][:name],
   artist: "Jimmy McSkin",
-  address: "42, rue Tabeuge"
+  address: "98, boulevard voltaire 75011 Paris"
 )
 
 Item.create!(
@@ -128,7 +128,7 @@ Item.create!(
   user_id: User.first.id,
   category: Item::CATEGORY[3][:name],
   artist: "Oropeu u' Upureo",
-  address: "La Mésopotamie"
+  address: "4 rue bapst 92600 Asnières-sur-seine"
 )
 
 Item.create!(
@@ -138,7 +138,7 @@ Item.create!(
   user_id: User.last.id,
   category: Item::CATEGORY[4][:name],
   artist: "Balance I. Haga",
-  address: "300 rue de la Richesse"
+  address: "98 boulevard maleshrbes 75017 paris"
 )
 
 Item.create!(
@@ -148,7 +148,7 @@ Item.create!(
   user_id: User.last.id,
   category: Item::CATEGORY[4][:name],
   artist: "Jay R. Mess",
-  address: "108, Boulevard Saint Honoré"
+  address: "108, rue Saint Honoré 75001 Paris"
 )
 
 Item.create!(
@@ -158,7 +158,7 @@ Item.create!(
   user_id: User.first.id + 1,
   category: Item::CATEGORY[3][:name],
   artist: "Feu le sculpteur",
-  address: "51, boulevard Arboise"
+  address: "51, rue de l'aigle 92250 La Garenne Colombes"
 )
 
 Item.create!(
@@ -168,5 +168,5 @@ Item.create!(
   user_id: User.first.id + 2,
   category: Item::CATEGORY[0][:name],
   artist: "Ben Z. Hemah",
-  address: "63, villa Stadium"
+  address: "63, rue jean bonal 92250 La Garenne Colombes"
 )

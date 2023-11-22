@@ -8,44 +8,44 @@ class ItemsController < ApplicationController
 
   def index
     @items = Item.all
-    additems = []
-    catitems = []
-    artitems = []
-    tititems = []
+    additems = Item.all
+    catitems = Item.all
+    artitems = Item.all
+    tititems = Item.all
     if params[:query].present?
       sql_subquery = "title ILIKE :query
         OR artist ILIKE :query
         OR address ILIKE :query"
         @items = @items.where(sql_subquery, query: "%#{params[:query]}%")
 
-    # elsif params[:address].present? || params[:category].present? || params[:artist].present? || params[:title].present?
-    #   (if params[:address].present?
-    #   addquery = "address ILIKE :address"
-    #   additems = @items.where(addquery, address: "%#{params[:address]}%")
-    #   end
-    #   if params[:category].present?
-    #     catquery = "category ILIKE :category"
-    #     catitems = @items.where(catquery, category: "%#{params[:category]}%")
-    #   end
-    #   if params[:artist].present?
-    #     artquery = "artist ILIKE :artist"
-    #     artitems = @items.where(artquery, artist: "%#{params[:artist]}%")
-    #   end
-    #   if params[:title].present?
-    #     titquery = "title ILIKE :title"
-    #     tititems = @items.where(titquery, title: "%#{params[:title]}%")
-    #   end)
-    # @items = (additems + catitems + artitems + tititems).uniq
+    elsif params[:address].present? || params[:category].present? || params[:artist].present? || params[:title].present?
+      (if params[:address].present?
+      addquery = "address ILIKE :address"
+      additems = @items.where(addquery, address: "%#{params[:address]}%")
+      end
+      if params[:category].present?
+        catquery = "category ILIKE :category"
+        catitems = @items.where(catquery, category: "%#{params[:category]}%")
+      end
+      if params[:artist].present?
+        artquery = "artist ILIKE :artist"
+        artitems = @items.where(artquery, artist: "%#{params[:artist]}%")
+      end
+      if params[:title].present?
+        titquery = "title ILIKE :title"
+        tititems = @items.where(titquery, title: "%#{params[:title]}%")
+      end)
+    @items = additems & catitems & artitems & tititems
 
-    elsif params[:category].present?
-      @category = params[:category].capitalize
-      @items = Item.where(category: @category)
+    # elsif params[:category].present?
+    #   @category = params[:category].capitalize
+    #   @items = Item.where(category: @category)
 
     else
       @items
     end
-    # raise
-    @markers = @items.geocoded.map do |item|
+
+    @markers = @items.map do |item|
     {
       lat: item.latitude,
       lng: item.longitude
