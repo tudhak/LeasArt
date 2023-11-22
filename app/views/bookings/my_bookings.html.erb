@@ -3,7 +3,11 @@
     <div class="col-6">
       <% @bookings.each do |booking| %>
         <div class="card mb-4">
-          <img class="card-img-top" src="..." alt="Item image">
+          <div class="image-container">
+            <% booking.item.photos.each do |photo| %>
+            <%= cl_image_tag photo.key, class: "img-fluid", crop: :fill %>
+            <% end %>
+          </div>
           <div class="card-body">
             <div class="card-header">
               <h5 class="card-title"><strong><%= booking.item.title %></strong></h5>
