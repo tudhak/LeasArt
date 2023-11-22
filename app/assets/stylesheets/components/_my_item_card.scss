@@ -1,0 +1,45 @@
+a, #create-btn a {
+  text-decoration: none;
+  color: black;
+}
+
+#create-btn a {
+  text-decoration: none;
+  color: white;
+}
+
+a:hover, #create-btn a:hover {
+  color: grey;
+}
+
+#create-btn {
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.my-items-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-gap: 16px; /* Espacement entre les cartes */
+}
+
+.my-item-card {
+  background: white;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  margin-bottom: 16px;
+  min-height: auto;
+  min-width: 300px; /* Ajustez la largeur minimale selon vos besoins */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.title-grid,
+.description-grid {
+  text-align: center;
+  padding: 16px; /* Ajout d'un padding autour du titre et de la description */
+}
+
+.my-item-card-description {
+  padding-bottom: 8px;
+}
