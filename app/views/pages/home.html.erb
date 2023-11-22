@@ -1,14 +1,26 @@
-<div class="container">
-  <div class="d-flex justify-content-center my-5">
-    <a href="/items" class="btn btn-primary">Browse all of our art pieces</a>
+<div class="container bg-darkblue">
+
+  <h4 class="text-center my-5"> Browse by artist, artwork name or location...   </h4>
+  <div class="row justify-content-center">
+    <div class="col-sm-8 my-3">
+      <%= form_with url: items_path, method: :get, class: "d-flex" do %>
+        <%= text_field_tag :query,
+              params[:query],
+              class: "form-control",
+              placeholder: "Type a keyword : artist, title or location"
+          %>
+        <%= submit_tag "Search", name: "", class: "btn btn-primary" %>
+      <% end %>
+    </div>
   </div>
 
-  <h4 class="text-center"> Browse by category! </h4>
+  <h4 class="text-center my-5"> Browse by category! </h4>
   <div class="cards">
     <% @categories.each do |category|%>
-      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
-        <%= link_to "#{category}", items_path(category: category.downcase), class:"text-decoration-none text-white" %>
+      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= category[:url] %>)">
+        <%= link_to "#{category[:name]}", items_path(category: category[:name].downcase), class:"text-decoration-none text-white" %>
       </div>
     <% end %>
   </div>
+
 </div>

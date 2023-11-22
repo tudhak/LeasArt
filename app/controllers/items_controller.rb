@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :authenticate_user!, except: [:index, :show, :index]
+  before_action :authenticate_user!, except: [:index, :show]
   before_action :set_item, only: [:show, :edit, :update, :destroy]
 
   def my_items
@@ -7,11 +7,23 @@ class ItemsController < ApplicationController
   end
 
   def index
-    if params[:category].present?
+    @items = Item.all
+    if params[:query].present?
+      sql_subquery = sql_subquery = "title ILIKE :query
+        OR artist ILIKE :query
+        OR address ILIKE :query"
+        @items = @items.where(sql_subquery, query: "%#{params[:query]}%")
+    elsif params[:category].present?
       @category = params[:category].capitalize
       @items = Item.where(category: @category)
     else
-      @items = Item.all
+      @items
+    end
+    @markers = @items.geocoded.map do |item|
+      {
+        lat: item.latitude,
+        lng: item.longitude
+      }
     end
   end
 
