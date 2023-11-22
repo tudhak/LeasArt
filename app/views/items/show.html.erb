@@ -1,7 +1,9 @@
 <div class="card mb-3" style="max-width: 540px;">
   <div class="row g-0">
-    <div class="col-md-4">
-      <img src="..." class="img-fluid rounded-start" alt="...">
+    <div class="col-md-4 image-container">
+      <% @item.photos.each do |photo| %>
+      <%= cl_image_tag photo.key, crop: :fill %>
+      <% end %>
     </div>
     <div class="col-md-8">
       <div class="card-body">
