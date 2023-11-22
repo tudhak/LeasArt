@@ -10,12 +10,20 @@ class BookingsController < ApplicationController
     @booking.status = "pending"
     @booking.item = @item
     @booking.user = current_user
-    @booking.total_price = ((@booking.end_date - @booking.start_date) / 60) * @item.price
+    @booking.total_price = ((@booking.end_date - @booking.start_date) / 43200 ) * @item.price
     if @booking.save
-      redirect_to item_path(@item)
+      redirect_to bookings_path
     else
       render :new, status: :unprocessable_entity
     end
+  end
+
+  def my_bookings
+    @bookings = current_user.bookings
+  end
+
+  def booked_items_index
+    @bookings = Booking.all.where(:status => ["pending", "confirmed"])
   end
 
   private

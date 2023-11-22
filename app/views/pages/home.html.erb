@@ -17,9 +17,10 @@
   <h4 class="text-center my-5"> Browse by category! </h4>
   <div class="cards">
     <% @categories.each do |category|%>
+      <%= link_to items_path(category: category[:name].downcase), class:"text-decoration-none text-white" do %>
       <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= category[:url] %>)">
-        <%= link_to "#{category[:name]}", items_path(category: category[:name].downcase), class:"text-decoration-none text-white" %>
-      </div>
+      <%= category[:name] %></div>
+      <% end %>
     <% end %>
   </div>
 
