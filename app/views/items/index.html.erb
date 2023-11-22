@@ -6,25 +6,30 @@
   <div class="row justify-content-center">
     <div class="col-sm-8 my-3">
       <%= form_with url: items_path, method: :get, class: "d-flex" do %>
-        <%= text_field_tag :address,
+        <%= text_field_tag :query,
+              params[:query],
+              class: "form-control mx-1",
+              placeholder: "Key word"
+        %>
+        <%#= text_field_tag :address,
               params[:address],
               class: "form-control mx-1",
-              placeholder: "Choose a location"
+              placeholder: "Location"
         %>
-        <%= text_field_tag :category,
+        <%#= text_field_tag :category,
               params[:category],
               class: "form-control mx-1",
-              placeholder: "Choose a category"
+              placeholder: "Category"
         %>
-        <%= text_field_tag :artist,
+        <%#= text_field_tag :artist,
               params[:artist],
               class: "form-control  mx-1",
-              placeholder: "Type a keyword : artist"
+              placeholder: "Artist"
         %>
-        <%= text_field_tag :title,
+        <%#= text_field_tag :title,
               params[:title],
               class: "form-control  mx-1",
-              placeholder: "Type a keyword : artist"
+              placeholder: "Name"
         %>
         <%= submit_tag "Search", name: "", class: "btn btn-primary" %>
       <% end %>
