@@ -9,6 +9,8 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     @booking.status = "pending"
     @booking.item = @item
+    @booking.user = current_user
+    @booking.total_price = ((@booking.end_date - @booking.start_date) / 60) * @item.price
     if @booking.save
       redirect_to item_path(@item)
     else
