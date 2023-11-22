@@ -3,3 +3,7 @@
   width: 100%;
   object-fit: contain;
 }
+
+.content-wrapper{
+  min-height: calc(100vh - 185px - 100px);
+}
