@@ -19,12 +19,15 @@
               <li class="list-group-item">Nom: <%= current_user.first_name %> <%= current_user.last_name %></li>
             </ul>
             <div class="card-header">Réservations</div>
-            <%= booked_items.bookings each |booking| %>
+            <%= booked_item.bookings each do |booking| %>
               <ul class="list-group list-group-flush">
-                <li class="list-group-item">Date de départ: <%= booked_item.booking.start_date %></li>
-                <li class="list-group-item">Date de fin: <%= booked_item.booking.end_date %></li>
-                <li class="list-group-item">Prix total de la réservation: <i class="fa-solid fa-euro-sign"></i> <%= booked_item.booking.total_price %></li>
+                <li class="list-group-item">Réservation de l'utilisateur: <%= booking.user.first_name %> <%= booking.user.last_name %></li>
+                <%# <li class="list-group-item">Statut de la réservation: <%= booking.status %></li>
+                <li class="list-group-item">Date de départ: <%= booking.start_date %></li>
+                <li class="list-group-item">Date de fin: <%= booking.end_date %></li>
+                <li class="list-group-item">Prix total de la réservation: <i class="fa-solid fa-euro-sign"></i> <%= booking.total_price %></li>
               </ul>
+            <% end %>
           </div>
         </div>
       <% end %>
