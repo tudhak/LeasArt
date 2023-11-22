@@ -1,0 +1,32 @@
+<div class="row m-4">
+  <h1 class="mb-3">My bookings</h1>
+    <div class="col-6">
+      <% @booked_items.each do |booked_item| %>
+        <div class="card mb-4">
+          <img class="card-img-top" src="..." alt="Item image">
+          <div class="card-body">
+            <div class="card-header">
+              <h5 class="card-title"><strong><%= booked_item.title %></strong></h5>
+            </div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">Description de l'oeuvre: <%= booked_item.description %></li>
+              <li class="list-group-item">Catégorie de l'oeuvre: <%= booked_item.category %></li>
+              <li class="list-group-item">Artiste: <%= booked_item.artist %></li>
+              <li class="list-group-item">Emplacement de l'oeuvre: <%= booked_item.address %></li>
+            </ul>
+            <div class="card-header">Propriétaire</div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">Nom: <%= current_user.first_name %> <%= current_user.last_name %></li>
+            </ul>
+            <div class="card-header">Réservations</div>
+            <%= booked_items.bookings each |booking| %>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item">Date de départ: <%= booked_item.booking.start_date %></li>
+                <li class="list-group-item">Date de fin: <%= booked_item.booking.end_date %></li>
+                <li class="list-group-item">Prix total de la réservation: <i class="fa-solid fa-euro-sign"></i> <%= booked_item.booking.total_price %></li>
+              </ul>
+          </div>
+        </div>
+      <% end %>
+    </div>
+</div>

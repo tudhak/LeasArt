@@ -22,6 +22,10 @@ class BookingsController < ApplicationController
     @bookings = current_user.bookings
   end
 
+  def my_booked_items
+    @booked_items = current_user.items.where(:status => ["pending", "confirmed"])
+  end
+
   private
 
   def set_item
