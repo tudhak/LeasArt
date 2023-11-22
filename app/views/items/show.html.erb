@@ -1,7 +1,11 @@
 <%# block top %>
 <div class='container mt-3'>
   <div class='card-product'>
-    <%= image_tag 'monet.webp', alt: 'Le plus beau tableau du monde' %>
+    <div class="image-container">
+      <% @item.photos.each do |photo| %>
+      <%= cl_image_tag photo.key, class: "img-fluid", crop: :fill %>
+      <% end %>
+    </div>
     <div class='card-product-infos'>
       <h2><%=@item.title.capitalize%></h2>
       <p><%=@item.description.capitalize %></p>
