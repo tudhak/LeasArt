@@ -1,9 +1,12 @@
 <%= simple_form_for [item, booking] do |f| %>
   <%= f.input :start_date,
               as: :string,
-              input_html: { data: { controller: "datepicker" } } %>
+              input_html: { data: { controller: "datepicker" } }
+               %>
   <%= f.input :end_date,
               as: :string,
               input_html: { data: { controller: "datepicker" } } %>
+  <%# <div data-controller="modal" data-action="click->modal#fire"> %>
   <%= f.submit class:"btn btn-primary" %>
 <% end %>
+<%# </div> %>
