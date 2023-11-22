@@ -11,28 +11,19 @@
   </div>
 
   <%# block bottom %>
-  <div class="card text-center">
+  <div class="card ">
     <div class="card-body">
-      <%=@item.user.first_name.capitalize%>
-      <h5 class="card-title">Booking dates:</h5>
-      <p> Price: <%= @item.price%>€</p>
-      <%# <p class="card-text"><%=" From:#{@booking.start_date}, To:#{@booking.end_date}"</p> %>
-    <%= link_to 'Book', new_item_booking_path(@item), class:'btn btn-primary' %>
-    <%# Doit rédiger vers un recap %>
-    </div>
-    <%# <div class="card-footer text-body-secondary">
-    </div> %>
-  </div>
-</div>
+      <h5>Owner: <%=@item.user.first_name.capitalize%></h5>
+      <h3> Price per day: <%= @item.price%>€</h3>
 
-
-<%# Display edit and delete links for the item owner %>
 <% if current_user && @item.user == current_user %>
-  <%# <%= link_to 'Edit', edit_item_path(@item) %>
+   <%# <%= link_to 'Edit', edit_item_path(@item) %>
   <%= link_to 'Delete', item_path(@item), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
 <% else %>
   <%# Display booking option for non-owners %>
   <%= link_to 'Book Now', new_item_booking_path(item_id: @item.id), class: "btn btn-primary" %>
 <% end %>
-
 <%= link_to 'Back', items_path %>
+    </div>
+  </div>
+</div>
