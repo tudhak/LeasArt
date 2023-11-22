@@ -55,15 +55,15 @@
 
           <div class="col-md-4">
 
+
             <div class="flat-card">
 
               <div class="flat-card-image">
-                <div  class="col-md-4 image-container">
+                <div class="image-container">
                   <% item.photos.each do |photo| %>
-                    <%= cl_image_tag photo.key, crop: :fill %>
+                  <%= cl_image_tag photo.key, class: "img-fluid", crop: :fill %>
                   <% end %>
                 </div>
-
               </div>
 
               <div class="flat-card-content">
