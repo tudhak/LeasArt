@@ -1,0 +1,15 @@
+<div class="row">
+  <h1>My bookings</h1>
+    <div class="col-6">
+      <% @bookings.each do %>
+        <div>
+          <ul>
+            <li><%= @booking.item.title %></li>
+            </li><%= @booking.item.description %></li>
+            </li><%= @booking.item.price %></li>
+          </div>
+
+    </ul>
+
+    </div>
+</div>
