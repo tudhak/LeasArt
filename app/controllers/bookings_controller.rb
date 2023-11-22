@@ -1,5 +1,28 @@
 class BookingsController < ApplicationController
-  def index
-    @bookings = Booking.all
+  before_action :set_item, only: [:new, :create]
+
+  def new
+    @booking = Booking.new
+  end
+
+  def create
+    @booking = Booking.new(booking_params)
+    @booking.status = "pending"
+    @booking.item = @item
+    if @booking.save
+      redirect_to item_path(@item)
+    else
+      render :new, status: :unprocessable_entity
+    end
+  end
+
+  private
+
+  def set_item
+    @item = Item.find(params[:item_id])
+  end
+
+  def booking_params
+    params.require(:booking).permit(:start_date, :end_date)
   end
 end
