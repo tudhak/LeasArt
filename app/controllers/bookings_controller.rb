@@ -10,7 +10,7 @@ class BookingsController < ApplicationController
     @booking.status = "pending"
     @booking.item = @item
     @booking.user = current_user
-    @booking.total_price = ((@booking.end_date - @booking.start_date) / 43200) * @item.price
+    @booking.total_price = ((@booking.end_date - @booking.start_date) / 86400 ) * @item.price
     if @booking.save
       redirect_to bookings_path
     else
