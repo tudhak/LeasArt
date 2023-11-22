@@ -5,10 +5,9 @@ export default class extends Controller {
   static targets = ["togglableMenu"];
 
   connect() {
-    console.log("Hello");
   }
 
-  mouse() {
+  click() {
     this.togglableMenuTarget.classList.toggle("d-none");
   }
 }
