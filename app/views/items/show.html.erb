@@ -1,12 +1,16 @@
-<%# block top %>
-<div class="container mt-3">
-  <div class="card-product">
-    <%= image_tag "monet.webp", alt: "Le plus beau tableau du monde" %>
-    <div class="card-product-infos">
-      <h2><%=@item.title.capitalize%></h2>
-      <p><%=@item.description.capitalize %></p>
-      <p><%=@item.artist.capitalize%></p>
-      <p><%= @item.address%></p>
+<div class="card mb-3" style="max-width: 540px;">
+  <div class="row g-0">
+    <div class="col-md-4 image-container">
+      <% @item.photos.each do |photo| %>
+      <%= cl_image_tag photo.key, crop: :fill %>
+      <% end %>
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title"><%= @item.title %></h5>
+        <p class="card-text"><%= @item.description %></p>
+        <p class="card-text"><small class="text-body-secondary"><%= @item.artist %></small></p>
+      </div>
     </div>
   </div>
 
