@@ -1,55 +1,102 @@
 
 <div class="container">
 
-  <h4 class="text-center my-5"> <strong>Find the perfect art piece for your interior!</strong></h4>
+  <h4 class="text-center mt-5"> <strong>Find the perfect fit for your interior!</strong></h4>
 
-  <div class="row">
+  <div class="row justify-content-center">
+    <div class="col-sm-8 my-3">
+      <%= form_with url: items_path, method: :get, class: "d-flex" do %>
+        <%= text_field_tag :query,
+              params[:query],
+              class: "form-control mx-1",
+              placeholder: "Key word"
+        %>
+        <%#= text_field_tag :address,
+              params[:address],
+              class: "form-control mx-1",
+              placeholder: "Location"
+        %>
+        <%#= text_field_tag :category,
+              params[:category],
+              class: "form-control mx-1",
+              placeholder: "Category"
+        %>
+        <%#= text_field_tag :artist,
+              params[:artist],
+              class: "form-control  mx-1",
+              placeholder: "Artist"
+        %>
+        <%#= text_field_tag :title,
+              params[:title],
+              class: "form-control  mx-1",
+              placeholder: "Name"
+        %>
+        <%= submit_tag "Search", name: "", class: "btn btn-primary" %>
+      <% end %>
+    </div>
+  </div>
 
-    <% @items.each do |item|%>
 
-      <div class="col-md-4">
+      <div class="row">
 
-        <div class="flat-card">
+        <p> <% if params[:query].present? %>Results for "<%=params[:query].capitalize %><% end %>"</p>
 
           <div class="col-md-4 image-container">
             <% item.photos.each do |photo| %>
             <%= cl_image_tag photo.key, crop: :fill %>
             <% end %>
           </div>
+        <div class="col-md-8 d-flex justify-content-center map-box">
 
-          <div class="flat-card-content">
+          <div class="map" style="width: 100%; height: 100%;"
+            data-controller="map"
+            data-map-markers-value="<%= @markers.to_json %>"
+            data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+          </div>
 
-            <div class="flat-card-title">
-              <h4><%= item.title  %></h4>
-            </div>
+        </div>
 
-            <p>Artist : <%= item.artist %></p>
-            <p>Address : <%= item.address %></p>
+        <% @items.each do |item|%>
 
-            <div class="flex justify-content-between">
-              <div class="flex align-items-center">
-                <i class="fa-solid fa-people-line"></i>
-                <span><%= item.category %></span>
+          <div class="col-md-4">
+
+            <div class="flat-card">
+
+              <div class="flat-card-image"></div>
+
+              <div class="flat-card-content">
+
+                <div class="flat-card-title">
+                  <h4><%= item.title  %></h4>
+                </div>
+
+                <p>Artist : <%= item.artist %></p>
+                <p>Address : <%= item.address %></p>
+
+                <div class="flex justify-content-between">
+                  <div class="flex align-items-center">
+                    <i class="fa-solid fa-people-line"></i>
+                    <span><%= item.category %></span>
+                  </div>
+
+                  <div class="flex align-items-center ms-3">
+                    <i class="fa-solid fa-euro-sign"></i>
+                    <span><%= item.price %> par jour </span>
+                  </div>
+                </div>
+
               </div>
 
-              <div class="flex align-items-center ms-3">
-                <i class="fa-solid fa-euro-sign"></i>
-                <span><%= item.price %> par jour </span>
-              </div>
+                <div class="flat-card-actions">
+                  <%= link_to "Show details", item_path(item) %>
+                </div>
+
             </div>
 
           </div>
 
-            <div class="flat-card-actions">
-              <%= link_to "Show details", item_path(item) %>
-            </div>
-
-        </div>
+        <% end %>
 
       </div>
-
-    <% end %>
-
-  </div>
 
 </div>

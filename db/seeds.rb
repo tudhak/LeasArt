@@ -55,10 +55,10 @@ Item.create!(
   title: "Le radeau de la Méduse",
   description: "Un grand tableau de maître",
   price: 500,
-  category: Item::CATEGORY.first,
+  category: Item::CATEGORY.first[:name],
   user_id: User.first.id,
   artist: "Théodore Géricault",
-  address: "20, rue des Boulets"
+  address: "15, rue dupin 75006 Paris"
 )
 
 Item.find_or_create_by!(
@@ -66,9 +66,9 @@ Item.find_or_create_by!(
   description: "Une oeuvre très reposante",
   price: 8,
   user_id: User.first.id + 1,
-  category: Item::CATEGORY.first,
+  category: Item::CATEGORY.first[:name],
   artist: "Edwin Goulainger",
-  address: "120, boulevard Palourdes"
+  address: "31, boulevard de la republique 92250 La-Garenne-Colombes"
 )
 
 Item.create!(
@@ -76,9 +76,9 @@ Item.create!(
   description: "Un tableau rafraîchissant",
   price: 12,
   user_id: User.first.id,
-  category: Item::CATEGORY.first,
+  category: Item::CATEGORY.first[:name],
   artist: "Noémie Depain",
-  address: "111, impasse Lepoivre"
+  address: "15, rue d'argenteuil 75001 Paris"
 )
 
 Item.create!(
@@ -86,9 +86,9 @@ Item.create!(
   description: "Juste somptueux",
   price: 150,
   user_id: User.first.id,
-  category: Item::CATEGORY[1],
+  category: Item::CATEGORY[1][:name],
   artist: "inconnu",
-  address: "16, impasse Taga"
+  address: "46, rue de nanterre, 92600 Asnières-sur-seine"
 )
 
 Item.create!(
@@ -96,9 +96,9 @@ Item.create!(
   description: "Ne convient pas à toutes les fesses",
   price: 40,
   user_id: User.first.id,
-  category: Item::CATEGORY[2],
+  category: Item::CATEGORY[2][:name],
   artist: "inconnu",
-  address: "61, rue Stanislas"
+  address: "5, rue erard 75012 Paris"
 )
 
 Item.create!(
@@ -106,7 +106,7 @@ Item.create!(
   description: "Parfait pour tous les maux de crâne",
   price: 65,
   user_id: User.first.id + 2,
-  category: Item::CATEGORY[1],
+  category: Item::CATEGORY[1][:name],
   artist: "inconnu",
   address: "138, rue Stic"
 )
@@ -116,7 +116,7 @@ Item.create!(
   description: "Le confort, c'est trop fort",
   price: 33,
   user_id: User.first.id + 1,
-  category: Item::CATEGORY[2],
+  category: Item::CATEGORY[2][:name],
   artist: "Jimmy McSkin",
   address: "42, rue Tabeuge"
 )
@@ -126,7 +126,7 @@ Item.create!(
   description: "Cette sculpture impose le respect",
   price: 211,
   user_id: User.first.id,
-  category: Item::CATEGORY[3],
+  category: Item::CATEGORY[3][:name],
   artist: "Oropeu u' Upureo",
   address: "La Mésopotamie"
 )
@@ -136,7 +136,7 @@ Item.create!(
   description: "Préparez-vous à être éblouis",
   price: 10_000,
   user_id: User.last.id,
-  category: Item::CATEGORY[4],
+  category: Item::CATEGORY[4][:name],
   artist: "Balance I. Haga",
   address: "300 rue de la Richesse"
 )
@@ -146,7 +146,7 @@ Item.create!(
   description: "La scintillance à l'état pur",
   price: 1_320,
   user_id: User.last.id,
-  category: Item::CATEGORY[4],
+  category: Item::CATEGORY[4][:name],
   artist: "Jay R. Mess",
   address: "108, Boulevard Saint Honoré"
 )
@@ -156,7 +156,7 @@ Item.create!(
   description: "La foudre dans la main",
   price: 680,
   user_id: User.first.id + 1,
-  category: Item::CATEGORY[3],
+  category: Item::CATEGORY[3][:name],
   artist: "Feu le sculpteur",
   address: "51, boulevard Arboise"
 )
@@ -166,7 +166,7 @@ Item.create!(
   description: "Un camaïeu d'émotions en couleur",
   price: 45,
   user_id: User.first.id + 2,
-  category: Item::CATEGORY[1],
+  category: Item::CATEGORY[0][:name],
   artist: "Ben Z. Hemah",
   address: "63, villa Stadium"
 )

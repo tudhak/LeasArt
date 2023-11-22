@@ -3,7 +3,7 @@
   <%= f.input :artist %>
   <%= f.input :photos, as: :file, input_html: { multiple: true } %>
   <%= f.input :description %>
-  <%= f.input :category, collection: Item::CATEGORY %>
+  <%= f.input :category, collection: Item::CATEGORY_NAME %>
   <%= f.input :price %>
   <%= f.input :address %>
   <%= f.submit %>

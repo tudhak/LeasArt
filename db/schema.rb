@@ -65,6 +65,8 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_22_102301) do
     t.string "category"
     t.string "artist"
     t.string "address"
+    t.float "latitude"
+    t.float "longitude"
     t.index ["user_id"], name: "index_items_on_user_id"
   end
 
