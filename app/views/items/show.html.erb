@@ -1,15 +1,27 @@
-<div class="card mb-3" style="max-width: 540px;">
-  <div class="row g-0">
-    <div class="col-md-4">
-      <img src="..." class="img-fluid rounded-start" alt="...">
+<%# block top %>
+<div class="container mt-3">
+  <div class="card-product">
+    <%= image_tag "monet.webp", alt: "Le plus beau tableau du monde" %>
+    <div class="card-product-infos">
+      <h2><%=@item.title.capitalize%></h2>
+      <p><%=@item.description.capitalize %></p>
+      <p><%=@item.artist.capitalize%></p>
+      <p><%= @item.address%></p>
     </div>
-    <div class="col-md-8">
-      <div class="card-body">
-        <h5 class="card-title"><%= @item.title %></h5>
-        <p class="card-text"><%= @item.description %></p>
-        <p class="card-text"><small class="text-body-secondary"><%= @item.artist %></small></p>
-      </div>
+  </div>
+
+  <%# block bottom %>
+  <div class="card text-center">
+    <div class="card-body">
+      <%=@item.user.first_name.capitalize%>
+      <h5 class="card-title">Booking dates:</h5>
+      <p> Price: <%= @item.price%>€</p>
+      <%# <p class="card-text"><%=" From:#{@booking.start_date}, To:#{@booking.end_date}"</p> %>
+    <%= link_to 'Book', new_item_booking_path(@item), class:'btn btn-primary' %>
+    <%# Doit rédiger vers un recap %>
     </div>
+    <%# <div class="card-footer text-body-secondary">
+    </div> %>
   </div>
 </div>
 
@@ -24,4 +36,3 @@
 <% end %>
 
 <%= link_to 'Back', items_path %>
-
