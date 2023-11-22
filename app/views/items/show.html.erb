@@ -1,31 +1,27 @@
-<div class="card mb-3" style="max-width: 540px;">
-  <div class="row g-0">
-    <div class="col-md-4 image-container">
-      <% @item.photos.each do |photo| %>
-      <%= cl_image_tag photo.key, crop: :fill %>
-      <% end %>
-    </div>
-    <div class="col-md-8">
-      <div class="card-body">
-        <h5 class="card-title"><%= @item.title %></h5>
-        <p class="card-text"><%= @item.description %></p>
-        <p class="card-text"><small class="text-body-secondary"><%= @item.artist %></small></p>
-      </div>
+<%# block top %>
+<div class='container mt-3'>
+  <div class='card-product'>
+    <%= image_tag 'monet.webp', alt: 'Le plus beau tableau du monde' %>
+    <div class='card-product-infos'>
+      <h2><%=@item.title.capitalize%></h2>
+      <p><%=@item.description.capitalize %></p>
+      <p><%=@item.artist.capitalize%></p>
+      <p><%=@item.address%></p>
     </div>
   </div>
-
   <%# block bottom %>
-  <div class="card ">
-    <div class="card-body">
-      <h5>Owner: <%=@item.user.first_name.capitalize%></h5>
+  <div class='card'>
+    <div class='card-body'>
+      <h5>Owner: <%=@item.user.first_name.capitalize%> <%=@item.user.last_name.capitalize%></h5>
       <h3> Price per day: <%= @item.price%>€</h3>
-
 <% if current_user && @item.user == current_user %>
-   <%# <%= link_to 'Edit', edit_item_path(@item) %>
-  <%= link_to 'Delete', item_path(@item), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
-<% else %>
+   <%# <%= link_to ‘Edit’, edit_item_path(@item) %>
+  <%= link_to 'Delete', item_path(@item), data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' }, class:"btn btn-primary" %>
+<% end %>
+  <div>
+  <% if @item.user != current_user %>
   <%# Display booking option for non-owners %>
-  <%= link_to 'Book Now', new_item_booking_path(item_id: @item.id), class: "btn btn-primary" %>
+  <%= link_to 'Book Now', new_item_booking_path(item_id: @item.id), class: 'btn btn-primary' %>
 <% end %>
 <%= link_to 'Back', items_path %>
     </div>
