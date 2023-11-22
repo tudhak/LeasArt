@@ -10,11 +10,17 @@ Rails.application.routes.draw do
   # get "up" => "rails/health#show", as: :rails_health_check
 
   get "/items/my_items", to: "items#my_items"
+
   resources :items, only: [:index, :show, :new, :create, :update, :destroy] do
     resources :bookings, only: [:new, :create]
   end
 
   resources :bookings, only: [:update, :show]
+
+  get "/bookings", to: "bookings#my_bookings"
+  get "/my_booked_items", to: "bookings#booked_items_index"
+  get "/my_booked_items/:id", to: "bookings#booked_items_show"
+  patch "/my_booked_items/:id", to: "bookings#booked_items_update"
 
   # Defines the root path route ("/")
   # root "posts#index"

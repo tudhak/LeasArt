@@ -32,8 +32,10 @@
               <%= link_to 'Create account', new_user_registration_path, class:"menu-actions" %>
             <% end %>
             <% if user_signed_in? %>
-              <%= link_to 'My items', items_my_items_path, class:"menu-actions actions-signed-in" %>
               <%= link_to 'Edit profile', edit_user_registration_path, class:"menu-actions actions-signed-in" %>
+              <%= link_to 'My items', items_my_items_path, class:"menu-actions actions-signed-in" %>
+              <%= link_to 'My bookings', bookings_path, class:"menu-actions actions-signed-in" %>
+              <%= link_to 'My booked items', my_booked_items_path, class:"menu-actions actions-signed-in" %>
               <%= link_to 'Log out', destroy_user_session_path, data: {turbo_method: :delete, turbo_confirm: "Do you want to log out?"}, class:"menu-actions actions-signed-in" %>
             <% end %>
           </div>
@@ -53,9 +55,9 @@
     <a href="#"><i class="fab fa-twitter"></i></a>
     <a href="#"><i class="fab fa-linkedin"></i></a>
   </div>
-  <div class="footer-copyright">
+  <%# <div class="footer-copyright">
     <p class="text-red"><i class="fas fa-heart">Merci Le Wagon</i> pour ce magnifique footer!</p>
-  </div>
+  </div> %>
 </footer>
 
   </body>
