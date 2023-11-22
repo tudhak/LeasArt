@@ -138,7 +138,7 @@ Item.create!(
   user_id: User.last.id,
   category: Item::CATEGORY[4][:name],
   artist: "Balance I. Haga",
-  address: "98 boulevard maleshrbes 75017 paris"
+  address: "98 boulevard malesherbes 75017 paris"
 )
 
 Item.create!(
