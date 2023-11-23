@@ -5,11 +5,6 @@ export default class extends Controller {
   static targets = ["start", "end", "totalprice", "dayprice"]
 
   connect() {
-    console.log("Test")
-    console.log(this.startTarget)
-    console.log(this.endTarget)
-    console.log(this.totalpriceTarget)
-    console.log(this.daypriceTarget)
   }
 
   click() {
