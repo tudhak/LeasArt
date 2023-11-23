@@ -7,7 +7,8 @@
       </div>
       <div class="modal-body">
         <p>Your booking request will be sent to <%= @item.user.first_name %> <%= @item.user.last_name %></p>
-        <p><strong>Total cost for the selected period: </strong></p>
+        <p><u>Total cost for the selected period:</u></p>
+        <p data-modal-target="totalprice"></p>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
