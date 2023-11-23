@@ -1,40 +1,41 @@
-<div class="row m-4">
-  <h1 class="mb-3">My booked items</h1>
-    <div class="col-6">
-      <% @bookings.each do |booking| %>
-        <% if booking.item.user == current_user %>
-        <div class="card mb-4">
-          <div class="image-container-booking">
-            <% booking.item.photos.each do |photo| %>
-            <%= cl_image_tag photo.key, id: "custom-img", crop: :fill %>
-            <% end %>
-          </div>
-          </div>
-          <div class="card-body">
-            <div class="card-header">
-              <h5 class="card-title"><strong><%= booking.item.title %></strong></h5>
+<div class="container">
+  <div class="row m-4 justify-content-center">
+    <h1 class="mb-4 text-center">My booked item details</h1>
+      <div class="col-6">
+        <% @bookings.each do |booking| %>
+          <% if booking.item.user == current_user %>
+            <div class="card mb-4 shadow-sm booking-container">
+              <div class="card-img-top image-container-booking border-bottom">
+                <% booking.item.photos.each do |photo| %>
+                <%= cl_image_tag photo.key, id: "custom-img", crop: :fill %>
+                <% end %>
+              </div>
+              <div class="card-body p-0">
+                <div class="card-header p-0">
+                  <h5 class="card-title p-3 m-0 bck-light-blue"><strong><%= booking.item.title %></strong></h5>
+                </div>
+                <ul class="list-group list-group-flush border-bottom">
+                  <li class="list-group-item bg-white">Artwork description: <%= booking.item.description %></li>
+                  <li class="list-group-item bg-white">Artwork category: <%= booking.item.category %></li>
+                  <li class="list-group-item bg-white">Artist: <%= booking.item.artist %></li>
+                  <li class="list-group-item bg-white">Artwork location: <%= booking.item.address %></li>
+                </ul>
+                <div class="card-header bck-light-blue"><strong>Owner</strong></div>
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item bg-white">Name: <%= current_user.first_name %> <%= current_user.last_name %></li>
+                </ul>
+                <div class="card-header bck-light-blue"><strong>Booking details</strong></div>
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item bg-white">Requestor name: <%= booking.user.first_name %> <%= booking.user.last_name %></li>
+                  <li class="list-group-item bg-white">Start date: <%= booking.start_date %></li>
+                  <li class="list-group-item bg-white">End date: <%= booking.end_date %></li>
+                  <li class="list-group-item bg-white">Status: <%= booking.status %></li>
+                  <li class="list-group-item bg-white">Booking total price: <i class="fa-solid fa-euro-sign"></i> <%= booking.total_price %></li>
+                </ul>
+              </div>
             </div>
-            <ul class="list-group list-group-flush">
-              <li class="list-group-item">Description de l'oeuvre: <%= booking.item.description %></li>
-              <li class="list-group-item">Catégorie de l'oeuvre: <%= booking.item.category %></li>
-              <li class="list-group-item">Artiste: <%= booking.item.artist %></li>
-              <li class="list-group-item">Emplacement de l'oeuvre: <%= booking.item.address %></li>
-            </ul>
-            <div class="card-header">Propriétaire</div>
-            <ul class="list-group list-group-flush">
-              <li class="list-group-item">Nom: <%= current_user.first_name %> <%= current_user.last_name %></li>
-            </ul>
-            <div class="card-header">Réservations</div>
-              <ul class="list-group list-group-flush">
-                <li class="list-group-item">Réservation de l'utilisateur: <%= booking.user.first_name %> <%= booking.user.last_name %></li>
-                <%# <li class="list-group-item">Statut de la réservation: <%= booking.status %></li>
-                <li class="list-group-item">Date de départ: <%= booking.start_date %></li>
-                <li class="list-group-item">Date de fin: <%= booking.end_date %></li>
-                <li class="list-group-item">Prix total de la réservation: <i class="fa-solid fa-euro-sign"></i> <%= booking.total_price %></li>
-              </ul>
-          </div>
-        </div>
+          <% end %>
         <% end %>
-      <% end %>
-    </div>
+      </div>
+  </div>
 </div>

@@ -1,0 +1,39 @@
+<div class="container">
+  <div class="row m-4 justify-content-center">
+    <h1 class="mb-4 text-center">My booking details</h1>
+      <div class="col-6">
+          <div class="card mb-4 shadow-sm booking-container">
+            <div class="card-img-top image-container-booking border-bottom">
+              <% @booking.item.photos.each do |photo| %>
+              <%= cl_image_tag photo.key, id: "custom-img", crop: :fill %>
+              <% end %>
+            </div>
+            <div class="card-body p-0">
+              <div class="card-header p-0">
+                <h5 class="card-title p-3 m-0 bck-light-blue"><strong><%= @booking.item.title %></strong></h5>
+              </div>
+              <ul class="list-group list-group-flush border-bottom">
+                <li class="list-group-item bg-white">Artwork description: <%= @booking.item.description %></li>
+                <li class="list-group-item bg-white">Artwork category: <%= @booking.item.category %></li>
+                <li class="list-group-item bg-white">Artist: <%= @booking.item.artist %></li>
+                <li class="list-group-item bg-white">Artwork location: <%= @booking.item.address %></li>
+              </ul>
+              <div class="card-header bck-light-blue"><strong>Owner</strong></div>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item bg-white">Name: <%= @booking.item.user.first_name %> <%= @booking.item.user.last_name %></li>
+              </ul>
+              <div class="card-header bck-light-blue"><strong>Booking details</strong></div>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item bg-white">Start date: <%= @booking.start_date %></li>
+                <li class="list-group-item bg-white">End date: <%= @booking.end_date %></li>
+                <li class="list-group-item bg-white">Status: <%= @booking.status %></li>
+                <li class="list-group-item bg-white">Booking total price: <i class="fa-solid fa-euro-sign"></i> <%= @booking.total_price %></li>
+              </ul>
+            </div>
+            <%= link_to dashboard_path, data: {turbo_method: :delete, turbo_confirm: "Do you want to delete this booking?"} do %>
+            <i class="fa-solid fa-xmark delete-button color-red"></i>
+            <% end %>
+          </div>
+      </div>
+  </div>
+</div>
