@@ -1,0 +1,108 @@
+<div class="row m-4">
+  <h1 class="mb-3"><%= current_user.first_name %>'s dashboard</h1>
+
+      <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item" role="presentation">
+          <button class="nav-link active" id="items-tab" data-bs-toggle="tab" data-bs-target="#items-tab-pane" type="button" role="tab" aria-controls="items-tab-pane" aria-selected="true">My items</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="bookings-tab" data-bs-toggle="tab" data-bs-target="#bookings-tab-pane" type="button" role="tab" aria-controls="bookings-tab-pane" aria-selected="false">My bookings</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="booked-items-tab" data-bs-toggle="tab" data-bs-target="#booked-items-tab-pane" type="button" role="tab" aria-controls="booked-items-tab-pane" aria-selected="false">My booked items</button>
+        </li>
+      </ul>
+
+      <div class="tab-content" id="myTabContent">
+
+        <div class="tab-pane fade show active" id="items-tab-pane" role="tabpanel" aria-labelledby="items-tab" tabindex="0">
+          <div class="container mt-3">
+            <h2>My Items</h2>
+            <div id="create-btn" class="btn btn-primary">
+              <%= link_to 'Add new item', new_item_path %>
+            </div>
+
+              <% if @my_items.any? %>
+                <div class="my-items-grid">
+                  <% @my_items.each do |item| %>
+                    <div class="my-item-card mt-3">
+                      <div class="my-item-card-title">
+                        <h3><%= link_to item.title, item %></h3>
+                      </div>
+
+                      <div class="my-item-card-description">
+                        <%= item.description %>
+                      </div>
+                    </div>
+                  <% end %>
+                </div>
+            <% else %>
+              <p>You don't have any items yet.</p>
+            <% end %>
+            <%= link_to 'Back', items_path, class:"btn btn-secondary" %>
+          </div>
+        </div>
+
+        <div class="tab-pane fade" id="bookings-tab-pane" role="tabpanel" aria-labelledby="bookings-tab" tabindex="0">
+          <div class="container">
+            <h2 class="m-3">My bookings</h2>
+            <div class="cards">
+                <%# <div class="col-6"> %>
+                  <% @my_bookings.each do |booking| %>
+                    <%= link_to booking_path(booking) do %>
+                      <div class="card shadow-sm">
+                        <div class="card-img-top image-container-booking border-bottom">
+                          <% booking.item.photos.each do |photo| %>
+                          <%= cl_image_tag photo.key, id: "custom-img", crop: :fill %>
+                          <% end %>
+                        </div>
+                        <div class="card-body p-0 bg-light">
+                          <h5 class="card-title p-3 m-0 border-bottom bck-light-blue"><strong><%= booking.item.title %></strong></h5>
+                          <ul class="list-group list-group-flush">
+                            <li class="list-group-item bg-white"><i class="fa-solid fa-calendar-days"></i> <%= booking.start_date.strftime("%d/%m/%Y") %></li>
+                            <li class="list-group-item bg-white"><i class="fa-solid fa-calendar-days"></i> <%= booking.end_date.strftime("%d/%m/%Y") %></li>
+                            <li class="list-group-item bg-white"><i class="fa-solid fa-tag"></i> <%= booking.total_price %> <i class="fa-solid fa-euro-sign"></i> </li>
+                            <li class="list-group-item bg-white"><strong><i class="fa-solid fa-bars-progress"></i> Status: <%= booking.status %></strong></li>
+                          </ul>
+                        </div>
+                      </div>
+                    <% end %>
+                  <% end %>
+                <%# </div> %>
+            </div>
+          </div>
+        </div>
+
+        <div class="tab-pane fade" id="booked-items-tab-pane" role="tabpanel" aria-labelledby="booked-items-tab" tabindex="0">
+
+            <div class="container">
+              <h2 class="m-3">My bookings</h2>
+              <div class="cards">
+                    <% @all_bookings.each do |booking| %>
+                      <% if booking.item.user == current_user %>
+                        <%= link_to my_booked_items_path(booking) do %>
+                          <div class="card shadow-sm mb-4">
+                            <div class="card-img-top image-container-booking border-bottom">
+                              <% booking.item.photos.each do |photo| %>
+                                <%= cl_image_tag photo.key, id: "custom-img", crop: :fill %>
+                              <% end %>
+                            </div>
+                            <div class="card-body p-0 bg-light">
+                              <h5 class="card-title p-3 m-0 border-bottom bck-light-blue"><strong><%= booking.item.title %></strong></h5>
+                              <ul class="list-group list-group-flush">
+                                <li class="list-group-item bg-white"><i class="fa-solid fa-user"></i> <%= booking.user.first_name %> <%= booking.user.last_name %></li>
+                                <li class="list-group-item bg-white"><i class="fa-solid fa-calendar-days"></i> <%= booking.start_date.strftime("%d/%m/%Y") %></li>
+                                <li class="list-group-item bg-white"><i class="fa-solid fa-calendar-days"></i> <%= booking.end_date.strftime("%d/%m/%Y") %></li>
+                                <li class="list-group-item bg-white"><i class="fa-solid fa-tag"></i> <%= booking.total_price %> <i class="fa-solid fa-euro-sign"></i> </li>
+                                <li class="list-group-item bg-white"><strong><i class="fa-solid fa-bars-progress"></i> Status: <%= booking.status %></strong></li>
+                              </ul>
+                            </div>
+                          </div>
+                        <% end %>
+                      <% end %>
+                    <% end %>
+              </div>
+            </div>
+        </div>
+      </div>
+</div>

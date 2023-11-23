@@ -17,7 +17,7 @@
     <nav class="navbar-lewagon">
       <div class="navbar-elements">
         <%= link_to root_path do %>
-          <%= image_tag "logo.png", alt: "logo", width: 200 %>
+          <%= image_tag "logo.png", alt: "logo", width: 120 %>
         <% end %>
         <div data-controller="dropdown-navbar" class="menu-container">
           <div class="menu-button" data-action="click->dropdown-navbar#click">
@@ -26,16 +26,15 @@
               <span><i class="fa-solid fa-user navbar-user"></i></span>
             </div>
           </div>
-          <div class="togglable-menu d-none" data-dropdown-navbar-target="togglableMenu">
-             <% unless user_signed_in? %>
-              <%= link_to 'Log in', new_user_session_path, class:"menu-actions" %>
-              <%= link_to 'Create account', new_user_registration_path, class:"menu-actions" %>
+          <% unless user_signed_in? %>
+            <div class="togglable-menu d-none disconnected" data-dropdown-navbar-target="togglableMenu">
+                <%= link_to 'Log in', new_user_session_path, class:"menu-actions" %>
+                <%= link_to 'Create account', new_user_registration_path, class:"menu-actions" %>
             <% end %>
             <% if user_signed_in? %>
+            <div class="togglable-menu d-none logged" data-dropdown-navbar-target="togglableMenu">
               <%= link_to 'Edit profile', edit_user_registration_path, class:"menu-actions actions-signed-in" %>
-              <%= link_to 'My items', items_my_items_path, class:"menu-actions actions-signed-in" %>
-              <%= link_to 'My bookings', bookings_path, class:"menu-actions actions-signed-in" %>
-              <%= link_to 'My booked items', my_booked_items_path, class:"menu-actions actions-signed-in" %>
+              <%= link_to 'My dashboard', dashboard_path, class:"menu-actions actions-signed-in" %>
               <%= link_to 'Log out', destroy_user_session_path, data: {turbo_method: :delete, turbo_confirm: "Do you want to log out?"}, class:"menu-actions actions-signed-in" %>
             <% end %>
           </div>
