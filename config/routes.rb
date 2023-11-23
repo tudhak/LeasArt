@@ -22,7 +22,11 @@ Rails.application.routes.draw do
   get "/my_booked_items/:id", to: "bookings#booked_items_show"
   patch "/my_booked_items/:id", to: "bookings#booked_items_update"
 
+  get "/dashboard", to: "bookings#dashboard"
+  # get "/dashboard/my_booked_items", to: "bookings#booked_items_index"
+  # get "/dashboard/my_booked_items/:id", to: "bookings#booked_items_show"
+  # patch "/dashboard/my_booked_items/:id", to: "bookings#booked_items_update"
+
   # Defines the root path route ("/")
   # root "posts#index"
-
 end

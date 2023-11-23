@@ -14,6 +14,12 @@ class BookingsController < ApplicationController
     end
   end
 
+  def dashboard
+    @my_items = current_user.items
+    @my_bookings = current_user.bookings
+    @all_bookings = Booking.all.where(:status => ["pending", "confirmed"])
+  end
+
   def my_bookings
     @bookings = current_user.bookings
   end
