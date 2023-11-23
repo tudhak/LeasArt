@@ -3,9 +3,9 @@
     <div class="col-6">
       <% @bookings.each do |booking| %>
         <div class="card mb-4">
-          <div class="image-container">
+          <div class="image-container-booking">
             <% booking.item.photos.each do |photo| %>
-            <%= cl_image_tag photo.key, class: "img-fluid", crop: :fill %>
+            <%= cl_image_tag photo.key, id: "custom-img", crop: :fill %>
             <% end %>
           </div>
           <div class="card-body">
