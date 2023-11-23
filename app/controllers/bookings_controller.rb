@@ -34,6 +34,10 @@ class BookingsController < ApplicationController
     @bookings = Booking.all.where(:status => ["pending", "confirmed"])
   end
 
+  def booked_items_show
+    @booking = Booking.find(params[:id])
+  end
+
   def booked_items_update
   end
 

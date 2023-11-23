@@ -80,7 +80,7 @@
               <div class="cards">
                     <% @all_bookings.each do |booking| %>
                       <% if booking.item.user == current_user %>
-                        <%= link_to my_booked_items_path(booking) do %>
+                        <%= link_to my_booked_item_path(booking) do %>
                           <div class="card shadow-sm mb-4">
                             <div class="card-img-top image-container-booking border-bottom">
                               <% booking.item.photos.each do |photo| %>
