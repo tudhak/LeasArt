@@ -1,0 +1,6 @@
+<div>
+  <% item.photos.each do |photo| %>
+    <%= cl_image_tag photo.key, class: "img-fluid", crop: :fill %>
+  <% end %>
+  <h5 class="my-3"><%= item.title %></h5>
+</div>
