@@ -17,7 +17,6 @@ Rails.application.routes.draw do
 
   resources :bookings, only: [:update, :show, :destroy]
 
-  # get "/bookings", to: "bookings#my_bookings"
   get "/my_booked_items", to: "bookings#booked_items_index"
   get "/my_booked_items/:id", to: "bookings#booked_items_show"
   patch "/my_booked_items/:id", to: "bookings#booked_items_update"

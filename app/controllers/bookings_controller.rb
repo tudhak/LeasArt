@@ -30,14 +30,6 @@ class BookingsController < ApplicationController
     redirect_to dashboard_path, status: :see_other
   end
 
-  def booked_items_show
-    @booked_item = Booking.find(params[:id])
-  end
-
-  def my_bookings
-    @bookings = current_user.bookings
-  end
-
   def booked_items_index
     @bookings = Booking.all.where(:status => ["pending", "confirmed"])
   end
