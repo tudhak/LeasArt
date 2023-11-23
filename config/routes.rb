@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   get "/items/my_items", to: "items#my_items"
 
   resources :items, only: [:index, :show, :new, :create, :update, :destroy] do
-    resources :bookings, only: [:new, :create]
+    resources :bookings, only: [:create]
   end
 
   resources :bookings, only: [:update, :show]

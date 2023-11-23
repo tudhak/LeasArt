@@ -32,8 +32,6 @@
   <% if @item.user == current_user %>
     <h3>Edit item</h3>
     <%= render 'form', item: @item %>
-    <%# <%= render 'remote_modal' %>
-    <%= turbo_frame_tag "remote_modal", target: "_top" %>
   <% end %>
 
   <% if current_user && @item.user != current_user %>

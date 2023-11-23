@@ -1,9 +1,5 @@
 class BookingsController < ApplicationController
-  before_action :set_item, only: [:new, :create]
-
-  def new
-    @booking = Booking.new
-  end
+  before_action :set_item, only: [:create]
 
   def create
     @booking = Booking.new(booking_params)
@@ -12,11 +8,7 @@ class BookingsController < ApplicationController
     @booking.user = current_user
     @booking.total_price = ((@booking.end_date - @booking.start_date) / 86400 ) * @item.price
     if @booking.save
-      # redirect_to bookings_path
-      redirect_to
-      # respond_to do |format|
-        # format.html { redirect_to bookings_url, notice: "Item was successfully created." }
-      # end
+      redirect_to bookings_path
     else
       render :new, status: :unprocessable_entity
     end
