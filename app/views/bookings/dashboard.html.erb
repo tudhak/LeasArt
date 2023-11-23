@@ -51,17 +51,17 @@
                   <% @my_bookings.each do |booking| %>
                     <%= link_to booking_path(booking) do %>
                       <div class="card shadow-sm">
-                        <div class="card-img-top">
+                        <div class="card-img-top image-container-booking border-bottom">
                           <% booking.item.photos.each do |photo| %>
                           <%= cl_image_tag photo.key, id: "custom-img", crop: :fill %>
                           <% end %>
                         </div>
                         <div class="card-body p-0 bg-light">
-                          <h5 class="card-title p-3 m-0 border-bottom"><strong><%= booking.item.title %></strong></h5>
+                          <h5 class="card-title p-3 m-0 border-bottom bg-light"><strong><%= booking.item.title %></strong></h5>
                           <ul class="list-group list-group-flush">
-                            <li class="list-group-item bg-light">Start date: <%= booking.start_date.strftime("%d/%m/%Y") %></li>
-                            <li class="list-group-item bg-light">End date: <%= booking.end_date.strftime("%d/%m/%Y") %></li>
-                            <li class="list-group-item bg-light">Booking total price: <i class="fa-solid fa-euro-sign"></i> <%= booking.total_price %></li>
+                            <li class="list-group-item">Start date: <%= booking.start_date.strftime("%d/%m/%Y") %></li>
+                            <li class="list-group-item">End date: <%= booking.end_date.strftime("%d/%m/%Y") %></li>
+                            <li class="list-group-item">Booking total price: <i class="fa-solid fa-euro-sign"></i> <%= booking.total_price %></li>
                             <li class="list-group-item bg-light"><strong>Status: <%= booking.status %></strong></li>
                           </ul>
                         </div>
