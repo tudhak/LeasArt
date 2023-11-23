@@ -12,7 +12,11 @@ class BookingsController < ApplicationController
     @booking.user = current_user
     @booking.total_price = ((@booking.end_date - @booking.start_date) / 86400 ) * @item.price
     if @booking.save
-      redirect_to bookings_path
+      # redirect_to bookings_path
+      redirect_to
+      # respond_to do |format|
+        # format.html { redirect_to bookings_url, notice: "Item was successfully created." }
+      # end
     else
       render :new, status: :unprocessable_entity
     end

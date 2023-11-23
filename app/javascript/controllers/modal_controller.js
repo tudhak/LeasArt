@@ -1,13 +1,24 @@
 import { Controller } from "@hotwired/stimulus"
+import { Modal } from "bootstrap"
 
 // Connects to data-controller="modal"
 export default class extends Controller {
-  static targets = ["clickModal"]
+
   connect() {
-    console.log("PTTT3")
+    console.log("Test")
+    this.modal = new Modal(this.element)
+    this.modal.show
   }
 
-  fire() {
-    this.clickModalTarget.classList.toggle("d-none");
+  hideBeforeRender(event) {
+    if (this.isOpen()) {
+      event.preventDefault();
+      this.element.addEventListener('hidden.bs.modal', event.detail.resume)
+      this.modal.hide
+    }
+  }
+
+  isOpen() {
+    return this.element.classList.contains("show")
   }
 }
