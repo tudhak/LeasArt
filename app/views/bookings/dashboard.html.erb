@@ -1,6 +1,6 @@
 <div class="row m-4">
   <h1 class="mb-3"><%= current_user.first_name %>'s dashboard</h1>
-    <div class="col-6">
+    <%# <div class="col-6"> %>
 
       <ul class="nav nav-tabs" id="myTab" role="tablist">
         <li class="nav-item" role="presentation">
@@ -44,41 +44,32 @@
         </div>
 
         <div class="tab-pane fade" id="bookings-tab-pane" role="tabpanel" aria-labelledby="bookings-tab" tabindex="0">
-          <div class="row m-4">
-            <h1 class="mb-3">My bookings</h1>
-              <div class="col-6">
-                <% @my_bookings.each do |booking| %>
-                  <div class="card mb-4">
-                    <div class="image-container-booking">
-                      <% booking.item.photos.each do |photo| %>
-                      <%= cl_image_tag photo.key, id: "custom-img", crop: :fill %>
-                      <% end %>
-                    </div>
-                    <div class="card-body">
-                      <div class="card-header">
-                        <h5 class="card-title"><strong><%= booking.item.title %></strong></h5>
+          <div class="container">
+            <h2 class="m-3">My bookings</h2>
+            <div class="cards">
+                <%# <div class="col-6"> %>
+                  <% @my_bookings.each do |booking| %>
+                    <%= link_to booking_path(booking) do %>
+                      <div class="card shadow-sm">
+                        <div class="card-img-top">
+                          <% booking.item.photos.each do |photo| %>
+                          <%= cl_image_tag photo.key, id: "custom-img", crop: :fill %>
+                          <% end %>
+                        </div>
+                        <div class="card-body p-0 bg-light">
+                          <h5 class="card-title p-3 m-0 border-bottom"><strong><%= booking.item.title %></strong></h5>
+                          <ul class="list-group list-group-flush">
+                            <li class="list-group-item bg-light">Start date: <%= booking.start_date.strftime("%d/%m/%Y") %></li>
+                            <li class="list-group-item bg-light">End date: <%= booking.end_date.strftime("%d/%m/%Y") %></li>
+                            <li class="list-group-item bg-light">Booking total price: <i class="fa-solid fa-euro-sign"></i> <%= booking.total_price %></li>
+                            <li class="list-group-item bg-light"><strong>Status: <%= booking.status %></strong></li>
+                          </ul>
+                        </div>
                       </div>
-                      <ul class="list-group list-group-flush">
-                        <li class="list-group-item">Description de l'oeuvre: <%= booking.item.description %></li>
-                        <li class="list-group-item">Catégorie de l'oeuvre: <%= booking.item.category %></li>
-                        <li class="list-group-item">Artiste: <%= booking.item.artist %></li>
-                        <li class="list-group-item">Emplacement de l'oeuvre: <%= booking.item.address %></li>
-                      </ul>
-                      <div class="card-header">Propriétaire</div>
-                      <ul class="list-group list-group-flush">
-                        <li class="list-group-item">Nom: <%= booking.item.user.first_name %> <%= booking.item.user.last_name %></li>
-                      </ul>
-                      <div class="card-header">Détails de la réservation</div>
-                      <ul class="list-group list-group-flush">
-                        <li class="list-group-item">Date de départ: <%= booking.start_date %></li>
-                        <li class="list-group-item">Date de fin: <%= booking.end_date %></li>
-                        <li class="list-group-item"><strong>Statut: <%= booking.status %></strong></li>
-                        <li class="list-group-item">Prix total de la réservation: <i class="fa-solid fa-euro-sign"></i> <%= booking.total_price %></li>
-                      </ul>
-                    </div>
-                  </div>
-                <% end %>
-              </div>
+                    <% end %>
+                  <% end %>
+                <%# </div> %>
+            </div>
           </div>
         </div>
 
@@ -125,7 +116,7 @@
 
         </div>
 
-      </div>
+      <%# </div> %>
 
     </div>
 </div>
