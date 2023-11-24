@@ -1,0 +1,31 @@
+
+.clickable {
+  padding: 4px;
+  width: 90px;
+  border: 1px solid #dedede;
+  color: #a0a0a0;
+  margin-right: 8px;
+  margin-bottom: 5px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.clickable i {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.clickable:hover i {
+  color: #52ACF4;
+}
+
+.clickable.active {
+  color: inherit;
+  border-color: inherit;
+}
+
+.clickable.active i {
+  color: #52ACF4;
+}
