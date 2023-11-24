@@ -34,7 +34,7 @@
                         </div>
 
                         <div class="my-item-card-description">
-                          <%= item.description %>
+
                         </div>
 
                       </div>
@@ -95,7 +95,7 @@
                               <% end %>
                             </div>
                             <div class="card-body p-0 bg-light">
-                              <h5 class="card-title p-3 m-0 border-bottom bck-light-blue"><strong><%= booking.item.title %></strong></h5>
+                              <h5 class="card-title p-3 m-0 border-bottom bg-primary text-white"><strong><%= booking.item.title %></strong></h5>
                               <ul class="list-group list-group-flush">
                                 <li class="list-group-item bg-white"><i class="fa-solid fa-user"></i> <%= booking.user.first_name %> <%= booking.user.last_name %></li>
                                 <li class="list-group-item bg-white"><i class="fa-solid fa-calendar-days"></i> <%= booking.start_date.strftime("%d/%m/%Y") %></li>

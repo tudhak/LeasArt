@@ -6,7 +6,7 @@
   img {
     height: 100%;
     width: 100%;
-    object-fit: contain;
+    object-fit: cover;
     overflow: hidden;
   }
 
@@ -20,7 +20,7 @@
   img {
     height: 100%;
     width: 100%;
-    object-fit: contain;
+    object-fit: cover;
     overflow: hidden;
   }
 
@@ -28,8 +28,9 @@
 
 
 #custom-img {
-  max-width: 50%;
-  height: auto;
+  max-width: 100%;
+  max-height: 200px;
+  object-fit: content;
 }
 
 .content-wrapper{
