@@ -22,9 +22,24 @@ export default class extends Controller {
 
   #addMarkersToMap() {
     this.markersValue.forEach((marker) => {
-      new mapboxgl.Marker()
+      const popup = new mapboxgl.Popup().setHTML(marker.map_info_html)
+      const itemid = marker.id
+      const mapMarker = new mapboxgl.Marker()
         .setLngLat([ marker.lng, marker.lat ])
+        .setPopup(popup)
         .addTo(this.map)
+
+        mapMarker.getElement().addEventListener('click', () => {
+          window.location.href = `/items/${itemid}`;
+        });
+
+        mapMarker.getElement().addEventListener('mouseenter', () => {
+          popup.addTo(this.map);
+        });
+
+        mapMarker.getElement().addEventListener('mouseleave', () => {
+          popup.remove();
+        });
     })
   }
 
