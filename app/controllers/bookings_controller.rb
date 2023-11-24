@@ -35,10 +35,11 @@ class BookingsController < ApplicationController
   end
 
   def booked_items_update
-    @booking = Booking.new(booking_params)
+    @booking = Booking.find(params[:id])
     @item = Item.find(params[:item_id])
     @booking.item = @item
-    redirect_to booking_path(@booking)
+    @booking.update(booking_params)
+    redirect_to my_booked_item_path(@booking), notice: "Status updated to #{@booking.status}"
   end
 
   private

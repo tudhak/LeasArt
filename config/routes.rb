@@ -14,11 +14,15 @@ Rails.application.routes.draw do
     resources :bookings, only: [:create]
   end
 
-  resources :bookings, only: [:show, :destroy]
+  resources :bookings, only: [:show, :destroy] do
+    member do
+      patch :test
+    end
+  end
 
   # get "/my_booked_items", to: "bookings#booked_items_index"
   get "/my_booked_items/:id", to: "bookings#booked_items_show", as: :my_booked_item
-  patch "/my_booked_items/:id", to: "bookings#booked_items_update"
+  patch "/my_booked_items/:id", to: "bookings#booked_items_update", as: :update_booked_item
 
   get "/dashboard", to: "bookings#dashboard"
 

@@ -33,8 +33,12 @@
                 </ul>
                 <% if @booking.status == "pending" %>
                   <div class="bg-white d-flex justify-content-between">
-                    <%= link_to 'Accept', my_booked_item_path(@booking), class:"btn btn-success" %>
-                    <%= link_to 'Reject', my_booked_item_path(@booking), class:"btn btn-danger" %>
+                    <%= link_to update_booked_item_path(@booking, status: "accepted"), method: :patch, class:"btn btn-success" do %>
+                      <span>Accept</span>
+                    <% end %>
+                    <%= link_to update_booked_item_path(@booking, status: "rejected"), data: {turbo_method: :patch}, class:"btn btn-danger" do %>
+                      <span>Reject</span>
+                    <% end %>
                   </div>
                 <% end %>
               </div>
