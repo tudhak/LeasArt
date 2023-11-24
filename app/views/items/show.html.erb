@@ -1,12 +1,12 @@
 <%# block top %>
 <div class='container mt-3'>
-  <div class='card-product'>
-    <div class="image-container">
+  <div class='card-product d-flex'>
+    <div class="image-container me-5">
       <% @item.photos.each do |photo| %>
       <%= cl_image_tag photo.key, class: "img-fluid", crop: :fill %>
       <% end %>
     </div>
-    <div class='card-product-infos'>
+    <div class='card-product-infos flex-grow-1 color-blue'>
       <h2><%=@item.title.capitalize%></h2>
       <p><%=@item.description.capitalize %></p>
       <p><%=@item.artist.capitalize%></p>
@@ -14,19 +14,19 @@
     </div>
   </div>
   <%# block bottom %>
-  <div class='card mb-4'>
-    <div class='card-body'>
-      <h5 class="mb-4">Price per day: <%= @item.price%> <strong><i class="fa-solid fa-euro-sign"></strong></i></h5>
-       <blockquote class="blockquote mb-3">
+  <div class='card mb-4 bg-white shadow'>
+    <div class='card-body bg-white'>
+      <h5 class="mb-4 color-blue">Price per day: <%= @item.price.round() %> <strong><i class="fa-solid fa-euro-sign"></strong></i></h5>
+       <blockquote class="blockquote mb-3 color-blue">
         <p class="blockquote-footer">Owner: <%=@item.user.first_name.capitalize%> <%=@item.user.last_name.capitalize%></p>
       </blockquote>
       <div class="d-flex justify-content-between">
         <% if current_user && @item.user == current_user %>
-          <%= link_to 'Delete', item_path(@item), data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' }, class:"btn btn-primary" %>
+          <%= link_to 'Delete', item_path(@item), data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' }, class:"btn btn-primary text-white" %>
         <% end %>
       </div>
     </div>
-    <div class="col-6 p-4 pt-0">
+    <div class="col-6 p-4 pt-0 bg-white">
       <% if @item.user == current_user %>
         <h3>Edit item</h3>
         <%= render 'form', item: @item %>
@@ -38,7 +38,7 @@
         <%= render 'bookings/form', item: @item, booking: @booking %>
       <% end %>
     </div>
-    <div class="col-4 px-4 pb-3">
+    <div class="col-4 px-4 pb-3 bg-white">
       <%= link_to 'Back', items_path, class:"btn btn-secondary" %>
     </div>
   </div>
