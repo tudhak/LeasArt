@@ -18,7 +18,7 @@
           # style: "width:150px",
           placeholder: "Location"
         %>
-        <%= text_field_tag :cat,
+        <%= text_field_tag :category,
           params[:category],
           class: "form-control mx-1",
           # style: "width:150px",
@@ -126,8 +126,8 @@
 
                 <div class="flat-card-actions">
                   <p data-controller="toggle-favorite" data-action="click->toggle-favorite#fire">
-                    <i data-toggle-favorite-target="togglableElement" class="fa-regular fa-heart d-none"></i>
-                    <i data-toggle-favorite-target="togglableItem" class="fa-solid fa-heart"></i>
+                    <i data-toggle-favorite-target="togglableElement" class="fa-regular fa-heart "></i>
+                    <i data-toggle-favorite-target="togglableItem" class="fa-solid fa-heart d-none"></i>
                     Add to favorites
                   </p>
                 </div>
