@@ -18,33 +18,33 @@
                   <% end %>
                 </div>
 
-                <div class="flat-card-content d-flex flex-column justify-content-between">
+                <div class="flat-card-content">
                   <%= link_to item_path(item) do %>
-
-                    <div class="flat-card-title">
-                      <h4 style="font-size: 20px">
-                      <%= item.title  %></h4>
-                    </div>
-
-                    <p style="font-size: 16px">Artist : <%= item.artist %></p>
-                    <p style="font-size: 14px">Address : <%= item.address %></p>
-
-                    <div class="flex justify-content-between">
-                      <div class="flex align-items-center">
-                        <p>
-                          <i class="<%= Item::CATEGORY[Item::CATEGORY_NAME.index(item.category)][:icon] %>"></i>
-                          <span ><%= item.category %></span>
-                        </p>
+                    <div class="d-flex flex-column justify-content-between h-100">
+                      <div class="flat-card-title">
+                        <h4 style="font-size: 20px">
+                        <%= item.title  %></h4>
                       </div>
 
-                      <div class="flex align-items-center ms-3">
-                        <p>
-                          <i class="fa-solid fa-euro-sign"></i>
-                          <span><%= item.price %>/day </span>
-                        </p>
+                      <p style="font-size: 16px">Artist : <%= item.artist %></p>
+                      <p style="font-size: 14px">Address : <%= item.address %></p>
+
+                      <div class="flex justify-content-between">
+                        <div class="flex align-items-center">
+                          <p>
+                            <i class="<%= Item::CATEGORY[Item::CATEGORY_NAME.index(item.category)][:icon] %>"></i>
+                            <span ><%= item.category %></span>
+                          </p>
+                        </div>
+
+                        <div class="flex align-items-center ms-3">
+                          <p>
+                            <i class="fa-solid fa-euro-sign"></i>
+                            <span><%= item.price %>/day </span>
+                          </p>
+                        </div>
                       </div>
                     </div>
-
                   <% end  %>
                 </div>
 

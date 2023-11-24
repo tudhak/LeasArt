@@ -24,19 +24,24 @@
         <% if current_user && @item.user == current_user %>
           <%= link_to 'Delete', item_path(@item), data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' }, class:"btn btn-primary" %>
         <% end %>
-        <%= link_to 'Back', items_path, class:"btn btn-secondary" %>
       </div>
+    </div>
+    <div class="col-6 p-4 pt-0">
+      <% if @item.user == current_user %>
+        <h3>Edit item</h3>
+        <%= render 'form', item: @item %>
+      <% end %>
+
+      <% if current_user && @item.user != current_user %>
+        <h3>Book the item</h3>
+        <h4>Please select dates to check availability</h4>
+        <%= render 'bookings/form', item: @item, booking: @booking %>
+      <% end %>
+    </div>
+    <div class="col-4 px-4 pb-3">
+      <%= link_to 'Back', items_path, class:"btn btn-secondary" %>
     </div>
   </div>
 
-  <% if @item.user == current_user %>
-    <h3>Edit item</h3>
-    <%= render 'form', item: @item %>
-  <% end %>
 
-  <% if current_user && @item.user != current_user %>
-    <h3>Book the item</h3>
-    <h4>Please select dates to check availability</h4>
-    <%= render 'bookings/form', item: @item, booking: @booking %>
-  <% end %>
 </div>
