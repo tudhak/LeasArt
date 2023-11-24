@@ -59,6 +59,7 @@ a:hover, #create-btn a:hover {
 
 .my-item-card:hover {
   box-shadow: 2px 2px 8px rgba(0, 0, 0, 1);
+  transition: 0.25s ease-out;
 }
 
 .content {
