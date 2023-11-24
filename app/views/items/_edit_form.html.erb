@@ -1,0 +1,10 @@
+<%= simple_form_for(item) do |f| %>
+  <%= f.input :title, label: false, placeholder: "Title" %>
+  <%= f.input :artist, label: false, placeholder: "Artist" %>
+  <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+  <%= f.input :description, label: false, placeholder: "Description" %>
+  <%= f.input :category, collection: Item::CATEGORY_NAME %>
+  <%= f.input :price, label: false, placeholder: "Price" %>
+  <%= f.input :address, label: false, placeholder: "Address" %>
+  <%= f.submit class:'btn btn-primary text-white' %>
+<% end %>

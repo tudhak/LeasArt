@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row m-4 justify-content-center">
-    <h1 class="mb-4 text-center">My booked item details</h1>
+    <h1 class="mb-4 text-center color-blue">My booked item details</h1>
       <div class="col-6">
           <% if @booking.item.user == current_user %>
             <div class="card mb-4 shadow-sm booking-container">
@@ -11,7 +11,7 @@
               </div>
               <div class="card-body p-0">
                 <div class="card-header p-0">
-                  <h5 class="card-title p-3 m-0 bck-light-blue"><strong><%= @booking.item.title %></strong></h5>
+                  <h5 class="card-title p-3 m-0 bg-primary text-white"><strong><%= @booking.item.title %></strong></h5>
                 </div>
                 <ul class="list-group list-group-flush border-bottom">
                   <li class="list-group-item bg-white">Artwork description: <%= @booking.item.description %></li>
@@ -19,11 +19,11 @@
                   <li class="list-group-item bg-white">Artist: <%= @booking.item.artist %></li>
                   <li class="list-group-item bg-white">Artwork location: <%= @booking.item.address %></li>
                 </ul>
-                <div class="card-header bck-light-blue"><strong>Owner</strong></div>
+                <div class="card-header bg-primary text-white"><strong>Owner</strong></div>
                 <ul class="list-group list-group-flush">
                   <li class="list-group-item bg-white">Name: <%= current_user.first_name %> <%= current_user.last_name %></li>
                 </ul>
-                <div class="card-header bck-light-blue"><strong>Booking details</strong></div>
+                <div class="card-header bg-primary text-white"><strong>Booking details</strong></div>
                 <ul class="list-group list-group-flush">
                   <li class="list-group-item bg-white">Requestor name: <%= @booking.user.first_name %> <%= @booking.user.last_name %></li>
                   <li class="list-group-item bg-white">Start date: <%= @booking.start_date.strftime("%d/%m/%Y") %></li>
@@ -32,10 +32,10 @@
                   <li class="list-group-item bg-white">Booking total price: <i class="fa-solid fa-euro-sign"></i> <%= @booking.total_price.round() %></li>
                 </ul>
                 <% if @booking.status == "pending" %>
-                  <div class="bg-white d-flex justify-content-between border-top">
-                    <%= link_to 'Accept', accept_booking_path(@booking), class:"btn btn-success",
+                  <div class="bg-white d-flex border">
+                    <%= link_to 'Accept', accept_booking_path(@booking), class:"btn btn-success text-white flex-grow-1",
                     data: { bs_toggle: "modal", bs_target: "#confirmBookedItemModal" } %>
-                    <%= link_to 'Reject', reject_booking_path(@booking), class:"btn btn-danger",
+                    <%= link_to 'Reject', reject_booking_path(@booking), class:"btn btn-danger text-white flex-grow-1",
                     data: { bs_toggle: "modal", bs_target: "#rejectBookedItemModal" } %>
                   </div>
                 <% end %>
