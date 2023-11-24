@@ -1,0 +1,35 @@
+
+  <div class="row justify-content-center">
+    <div class="col-sm-8 my-3">
+      <%= form_with url: items_path, method: :get, class: "d-flex" do %>
+        <%= text_field_tag :address,
+          params[:address],
+          class: "form-control mx-1",
+          placeholder: "Location"
+        %>
+        <%#= text_field_tag :category,
+          params[:category],
+          class: "form-control mx-1",
+          # style: "width:150px",
+          placeholder: "Category"
+        %>
+        <%= select_tag :category,
+          options_for_select(@category, selected: @default),
+          class: "form-control mx-1",
+          placeholder: params[:category].present? ? params[:category] : "Select category"
+        %>
+        <%= text_field_tag :artist,
+          params[:artist],
+          class: "form-control  mx-1",
+          placeholder: "Artist"
+        %>
+        <%= text_field_tag :title,
+          params[:title],
+          class: "form-control  mx-1",
+          placeholder: "Name"
+        %>
+
+        <%= submit_tag "Search", name: "", class: "btn btn-primary text-white" %>
+      <% end %>
+    </div>
+  </div>

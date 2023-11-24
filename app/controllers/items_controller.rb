@@ -12,20 +12,25 @@ class ItemsController < ApplicationController
     catitems = Item.all
     artitems = Item.all
     tititems = Item.all
+    @category = Item::CATEGORY_NAME
     if params[:query].present?
       sql_subquery = "title ILIKE :query
-        OR artist ILIKE :query
-        OR address ILIKE :query"
-        @items = @items.where(sql_subquery, query: "%#{params[:query]}%")
+      OR artist ILIKE :query
+      OR address ILIKE :query"
+      @items = @items.where(sql_subquery, query: "%#{params[:query]}%")
+
 
     elsif params[:address].present? || params[:category].present? || params[:artist].present? || params[:title].present?
       (if params[:address].present?
       addquery = "address ILIKE :address"
       additems = @items.where(addquery, address: "%#{params[:address]}%")
-      end
-      if params[:category].present?
-        catquery = "category ILIKE :category"
-        catitems = @items.where(catquery, category: "%#{params[:category]}%")
+    end
+    if params[:category].present?
+      catquery = "category ILIKE :category"
+      catitems = @items.where(catquery, category: "%#{params[:category]}%")
+
+      @default = [params[:category]]
+
       end
       if params[:artist].present?
         artquery = "artist ILIKE :artist"
