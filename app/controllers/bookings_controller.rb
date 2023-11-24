@@ -18,6 +18,7 @@ class BookingsController < ApplicationController
     @my_items = current_user.items
     @my_bookings = current_user.bookings
     @all_bookings = Booking.all
+    @item = Item.new
   end
 
   def show
