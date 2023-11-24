@@ -23,7 +23,8 @@ a, #create-btn a {
 .my-item-card {
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
   margin-bottom: 16px;
-  min-height: 150px;
+  // min-height: 150px;
+  height: 200px;
   min-width: 300px;
   display: flex;
   flex-direction: column;
@@ -45,12 +46,12 @@ a, #create-btn a {
   // z-index: 200;
 }
 
-.my-item-card-description {
-  padding-bottom: 8px;
-  text-align: center;
-  text-shadow: 2px 2px 4px black;
-  // z-index: 4;
-}
+// .my-item-card-description {
+//   padding-bottom: 8px;
+//   text-align: center;
+//   text-shadow: 2px 2px 4px black;
+//   // z-index: 4;
+// }
 
 a:hover, #create-btn a:hover {
   color: white;

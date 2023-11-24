@@ -29,7 +29,7 @@
     <div class="col-6 p-4 pt-0 bg-white">
       <% if @item.user == current_user %>
         <h3>Edit item</h3>
-        <%= render 'form', item: @item %>
+        <%= render 'edit_form', item: @item %>
       <% end %>
 
       <% if current_user && @item.user != current_user %>
