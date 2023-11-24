@@ -27,11 +27,7 @@ class BookingsController < ApplicationController
   def destroy
     @booking = Booking.find(params[:id])
     @booking.destroy
-    redirect_to dashboard_path, status: :see_other
-  end
-
-  def booked_items_index
-    @bookings = Booking.all.where(:status => ["pending", "confirmed"])
+    redirect_to item_path(@booking.item), status: :see_other
   end
 
   def booked_items_show
@@ -39,6 +35,10 @@ class BookingsController < ApplicationController
   end
 
   def booked_items_update
+    @booking = Booking.new(booking_params)
+    @item = Item.find(params[:item_id])
+    @booking.item = @item
+    redirect_to booking_path(@booking)
   end
 
   private
@@ -48,6 +48,6 @@ class BookingsController < ApplicationController
   end
 
   def booking_params
-    params.require(:booking).permit(:start_date, :end_date)
+    params.require(:booking).permit(:start_date, :end_date, :status)
   end
 end

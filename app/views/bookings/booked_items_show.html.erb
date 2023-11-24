@@ -31,6 +31,12 @@
                   <li class="list-group-item bg-white">Status: <%= @booking.status %></li>
                   <li class="list-group-item bg-white">Booking total price: <i class="fa-solid fa-euro-sign"></i> <%= @booking.total_price %></li>
                 </ul>
+                <% if @booking.status == "pending" %>
+                  <div class="bg-white d-flex justify-content-between">
+                    <%= link_to 'Accept', my_booked_item_path(@booking), class:"btn btn-success" %>
+                    <%= link_to 'Reject', my_booked_item_path(@booking), class:"btn btn-danger" %>
+                  </div>
+                <% end %>
               </div>
             </div>
           <% end %>
