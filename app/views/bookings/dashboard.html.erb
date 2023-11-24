@@ -53,7 +53,7 @@
                       <div class="card shadow-sm">
                         <div class="card-img-top image-container-booking border-bottom">
                           <% booking.item.photos.each do |photo| %>
-                          <%= cl_image_tag photo.key, id: "custom-img", crop: :fill %>
+                          <%= cl_image_tag photo.key, id: "custom-img", crop: :fill, height: 200, width: 200 %>
                           <% end %>
                         </div>
                         <div class="card-body p-0 bg-light">
@@ -84,7 +84,7 @@
                           <div class="card shadow-sm mb-4">
                             <div class="card-img-top image-container-booking border-bottom">
                               <% booking.item.photos.each do |photo| %>
-                                <%= cl_image_tag photo.key, id: "custom-img", crop: :fill %>
+                                <%= cl_image_tag photo.key, id: "custom-img", crop: :fill, height: 200, width: 200 %>
                               <% end %>
                             </div>
                             <div class="card-body p-0 bg-light">

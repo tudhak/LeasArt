@@ -44,6 +44,7 @@
           <% end %>
         <%= render 'bookings/confirm_booking_modal', booking: @booking %>
         <%= render 'bookings/reject_booking_modal', booking: @booking %>
+        <%= link_to 'Back', dashboard_path, class:"btn btn-secondary" %>
       </div>
   </div>
 </div>
