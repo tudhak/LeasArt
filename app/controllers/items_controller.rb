@@ -48,7 +48,9 @@ class ItemsController < ApplicationController
     @markers = @items.map do |item|
     {
       lat: item.latitude,
-      lng: item.longitude
+      lng: item.longitude,
+      map_info_html: render_to_string(partial: "map_info", locals: {item: item} ),
+      id: item.id
     }
     end
   end
