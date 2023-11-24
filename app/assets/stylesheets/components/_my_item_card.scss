@@ -1,6 +1,6 @@
 a, #create-btn a {
   text-decoration: none;
-  color: black;
+  color: white;
 }
 
 #create-btn a {
@@ -8,9 +8,6 @@ a, #create-btn a {
   color: white;
 }
 
-a:hover, #create-btn a:hover {
-  color: grey;
-}
 
 #create-btn {
   text-align: center;
@@ -20,11 +17,10 @@ a:hover, #create-btn a:hover {
 .my-items-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  grid-gap: 16px; /* Espacement entre les cartes */
+  grid-gap: 16px;
 }
 
 .my-item-card {
-  background: white;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
   margin-bottom: 16px;
   min-height: 150px;
@@ -33,13 +29,38 @@ a:hover, #create-btn a:hover {
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
+  background-position: center;
+  background-size: cover;
+  border-radius: 16px;
+  // filter: blur(2px);
+  z-index: 1;
+  overflow: hidden;
 }
+
 
 .my-item-card-title {
   text-align: center;
   padding: 16px;
+  text-shadow: 2px 2px 4px black;
+  // z-index: 200;
 }
 
 .my-item-card-description {
   padding-bottom: 8px;
+  text-align: center;
+  text-shadow: 2px 2px 4px black;
+  // z-index: 4;
+}
+
+a:hover, #create-btn a:hover {
+  color: white;
+
+}
+
+.my-item-card:hover {
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 1);
+}
+
+.content {
+filter: none;
 }

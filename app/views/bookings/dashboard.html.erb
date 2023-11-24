@@ -25,15 +25,22 @@
               <% if @my_items.any? %>
                 <div class="my-items-grid">
                   <% @my_items.each do |item| %>
-                    <div class="my-item-card mt-3">
-                      <div class="my-item-card-title">
-                        <h3><%= link_to item.title, item %></h3>
+                  <%= link_to item do %>
+                    <div class="my-item-card mt-3" style="background-image: url(<%= cl_image_path item.photos.first.key, crop: :fill %>)">
+                      <div class="content-card">
+
+                        <div class="my-item-card-title">
+                          <h3><%= item.title %></h3>
+                        </div>
+
+                        <div class="my-item-card-description">
+                          <%= item.description %>
+                        </div>
+
                       </div>
 
-                      <div class="my-item-card-description">
-                        <%= item.description %>
                       </div>
-                    </div>
+                    <% end %>
                   <% end %>
                 </div>
             <% else %>
