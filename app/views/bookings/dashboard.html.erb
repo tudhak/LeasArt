@@ -61,8 +61,8 @@
                           <ul class="list-group list-group-flush">
                             <li class="list-group-item bg-white"><i class="fa-solid fa-calendar-days"></i> <%= booking.start_date.strftime("%d/%m/%Y") %></li>
                             <li class="list-group-item bg-white"><i class="fa-solid fa-calendar-days"></i> <%= booking.end_date.strftime("%d/%m/%Y") %></li>
-                            <li class="list-group-item bg-white"><i class="fa-solid fa-tag"></i> <%= booking.total_price %> <i class="fa-solid fa-euro-sign"></i> </li>
-                            <li class="list-group-item bg-white"><strong><i class="fa-solid fa-bars-progress"></i> Status: <%= booking.status %></strong></li>
+                            <li class="list-group-item bg-white"><i class="fa-solid fa-tag"></i> <%= booking.total_price.round() %> <i class="fa-solid fa-euro-sign"></i> </li>
+                            <li class="list-group-item bg-white"><i class="fa-solid fa-bars-progress"></i> <%= booking.status.capitalize %></li>
                           </ul>
                         </div>
                       </div>
@@ -93,8 +93,8 @@
                                 <li class="list-group-item bg-white"><i class="fa-solid fa-user"></i> <%= booking.user.first_name %> <%= booking.user.last_name %></li>
                                 <li class="list-group-item bg-white"><i class="fa-solid fa-calendar-days"></i> <%= booking.start_date.strftime("%d/%m/%Y") %></li>
                                 <li class="list-group-item bg-white"><i class="fa-solid fa-calendar-days"></i> <%= booking.end_date.strftime("%d/%m/%Y") %></li>
-                                <li class="list-group-item bg-white"><i class="fa-solid fa-tag"></i> <%= booking.total_price %> <i class="fa-solid fa-euro-sign"></i> </li>
-                                <li class="list-group-item bg-white"><strong><i class="fa-solid fa-bars-progress"></i> Status: <%= booking.status %></strong></li>
+                                <li class="list-group-item bg-white"><i class="fa-solid fa-tag"></i> <%= booking.total_price.round %> <i class="fa-solid fa-euro-sign"></i> </li>
+                                <li class="list-group-item bg-white"><i class="fa-solid fa-bars-progress"></i> <%= booking.status.capitalize %></li>
                               </ul>
                             </div>
                           </div>

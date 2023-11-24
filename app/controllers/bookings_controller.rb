@@ -17,7 +17,7 @@ class BookingsController < ApplicationController
   def dashboard
     @my_items = current_user.items
     @my_bookings = current_user.bookings
-    @all_bookings = Booking.all.where(:status => ["pending", "confirmed"])
+    @all_bookings = Booking.all
   end
 
   def show
@@ -34,11 +34,15 @@ class BookingsController < ApplicationController
     @booking = Booking.find(params[:id])
   end
 
-  def booked_items_update
+  def accept
     @booking = Booking.find(params[:id])
-    @item = Item.find(params[:item_id])
-    @booking.item = @item
-    @booking.update(booking_params)
+    @booking.update(status: "accepted")
+    redirect_to my_booked_item_path(@booking), notice: "Status updated to #{@booking.status}"
+  end
+
+  def reject
+    @booking = Booking.find(params[:id])
+    @booking.update(status: "rejected")
     redirect_to my_booked_item_path(@booking), notice: "Status updated to #{@booking.status}"
   end
 

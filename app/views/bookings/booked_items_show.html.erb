@@ -26,24 +26,24 @@
                 <div class="card-header bck-light-blue"><strong>Booking details</strong></div>
                 <ul class="list-group list-group-flush">
                   <li class="list-group-item bg-white">Requestor name: <%= @booking.user.first_name %> <%= @booking.user.last_name %></li>
-                  <li class="list-group-item bg-white">Start date: <%= @booking.start_date %></li>
-                  <li class="list-group-item bg-white">End date: <%= @booking.end_date %></li>
+                  <li class="list-group-item bg-white">Start date: <%= @booking.start_date.strftime("%d/%m/%Y") %></li>
+                  <li class="list-group-item bg-white">End date: <%= @booking.end_date.strftime("%d/%m/%Y") %></li>
                   <li class="list-group-item bg-white">Status: <%= @booking.status %></li>
-                  <li class="list-group-item bg-white">Booking total price: <i class="fa-solid fa-euro-sign"></i> <%= @booking.total_price %></li>
+                  <li class="list-group-item bg-white">Booking total price: <i class="fa-solid fa-euro-sign"></i> <%= @booking.total_price.round() %></li>
                 </ul>
                 <% if @booking.status == "pending" %>
-                  <div class="bg-white d-flex justify-content-between">
-                    <%= link_to update_booked_item_path(@booking, status: "accepted"), method: :patch, class:"btn btn-success" do %>
-                      <span>Accept</span>
-                    <% end %>
-                    <%= link_to update_booked_item_path(@booking, status: "rejected"), data: {turbo_method: :patch}, class:"btn btn-danger" do %>
-                      <span>Reject</span>
-                    <% end %>
+                  <div class="bg-white d-flex justify-content-between border-top">
+                    <%= link_to 'Accept', accept_booking_path(@booking), class:"btn btn-success",
+                    data: { bs_toggle: "modal", bs_target: "#confirmBookedItemModal" } %>
+                    <%= link_to 'Reject', reject_booking_path(@booking), class:"btn btn-danger",
+                    data: { bs_toggle: "modal", bs_target: "#rejectBookedItemModal" } %>
                   </div>
                 <% end %>
               </div>
             </div>
           <% end %>
+        <%= render 'bookings/confirm_booking_modal', booking: @booking %>
+        <%= render 'bookings/reject_booking_modal', booking: @booking %>
       </div>
   </div>
 </div>
