@@ -1,0 +1,17 @@
+html,
+body {
+  height: 100%;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.main-content {
+  flex: 1 0 auto; // utile seulement pour le contenu principal !
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}

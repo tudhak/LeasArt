@@ -2,8 +2,7 @@
   justify-content: space-between;
   background: white;
   position: sticky;
-  border-bottom: 0.5px solid #B6B5BA;
-  // height: 80px;
+  border-bottom: 0.5px solid #b6b5ba;
 }
 
 .navbar-elements {
@@ -17,7 +16,7 @@
 .navbar-user {
   font-size: 1.2rem;
   color: #757575;
-  border: 0.5px solid #B6B5BA;
+  border: 0.5px solid #b6b5ba;
   border-radius: 50%;
   padding: 4px;
 }
@@ -32,13 +31,13 @@
 .menu-container {
   position: relative;
   border-radius: 30px;
-  border: 0.5px solid #B6B5BA;
+  border: 0.5px solid #b6b5ba;
 }
 
 .togglable-menu {
   display: flex;
   flex-direction: column;
-  border: 1px solid rgba(91, 91, 91, .5);
+  border: 1px solid rgba(91, 91, 91, 0.5);
   position: absolute;
   left: -5px;
   // bottom: -74px;
@@ -56,7 +55,6 @@
 
 .disconnected {
   left: -2px;
-
 }
 
 .menu-button {
@@ -78,7 +76,7 @@
 
 .menu-actions {
   text-align: center;
-  color: #2B3467;
+  color: #2b3467;
   text-decoration: none;
   cursor: pointer;
   background-color: transparent;
@@ -107,11 +105,9 @@
 }
 
 .menu-actions:hover {
-  background-color: #BAD7E9;
+  background-color: #bad7e9;
   color: white;
-
 }
-
 
 .menu-button:hover {
   // box-shadow: 2px 2px 6px #969696;
@@ -121,7 +117,6 @@
 .menu-container:hover {
   box-shadow: 1px 1px 3px rgba(187, 187, 187, 0.522);
 }
-
 
 .navbar-lewagon p {
   margin: 0;

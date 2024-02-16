@@ -2,37 +2,28 @@
   height: 100%;
   background-color: black;
 
-
   img {
     height: 100%;
     width: 100%;
     object-fit: cover;
     overflow: hidden;
   }
-
 }
 
 .image-container-booking {
   height: 100%;
   background-color: transparent;
 
-
   img {
     height: 100%;
     width: 100%;
     object-fit: cover;
     overflow: hidden;
   }
-
 }
-
 
 #custom-img {
   max-width: 100%;
   max-height: 200px;
   object-fit: content;
-}
-
-.content-wrapper{
-  min-height: calc(100vh - 185px - 100px);
 }
