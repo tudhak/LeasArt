@@ -3,11 +3,11 @@
 
   <div class="d-flex justify-content-center">
     <%= link_to items_path, class:"btn btn-primary text-white", style:"border-radius: 6px; padding-top: 12px;" do %>
-      <h4 style="font-size:18px;">Browse all of our art pieces</h4>
+      <h4 style="font-size:24px;">Browse all art</h4>
     <% end %>
   </div>
 
-  <h4 class="text-center my-5 text-primary"> Browse by category! </h4>
+  <h4 class="text-center my-5 text-primary"> Categories </h4>
   <div class="cards">
     <% @categories.each do |category|%>
       <%= link_to items_path(category: category[:name].downcase), class:"text-decoration-none text-white" do %>
