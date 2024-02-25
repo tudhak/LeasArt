@@ -1,0 +1,11 @@
+.red-button {
+  background-color: $fancy-red;
+  border-radius: 15px;
+  color: #fff;
+  border: 1px solid #fff;
+  padding: 12px 24px;
+}
+
+.red-button hover {
+  background-color: #ff6486;
+}
