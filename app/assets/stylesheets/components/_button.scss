@@ -6,6 +6,15 @@
   padding: 12px 24px;
 }
 
-.red-button hover {
+.red-button:hover {
   background-color: #ff6486;
+  color: #fff;
+}
+
+.orange-button {
+  background-color: #e2914b;
+}
+
+.orange-button:hover {
+  background-color: #fcae6a;
 }
