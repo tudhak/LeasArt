@@ -70,15 +70,15 @@ a = {
 ima = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQchk9wbwEyK68T_zbD5xuaT3HmFy0HoJaXjg&usqp=CAU"
 
 b = {
-  title: "Vaches dans la prairie",
-  description: "Une oeuvre très reposante",
+  title: "Fallen sky",
+  description: "Another stunning artwork by Edwin which truly captures the immensity of the world and fosters viewers' introspection.",
   price: 8,
   user_id: User.first.id + 1,
   category: Item::CATEGORY.first[:name],
   artist: "Edwin Goulainger",
   address: "31, boulevard de la republique 92250 La-Garenne-Colombes"
 }
-imb = "https://th.bing.com/th/id/OIP.78C5aNNAmh3QsuxMnfHRCwHaGT?w=206&h=180&c=7&r=0&o=5&pid=1.7"
+imb = image_tag("tableau1-resized.jpg")
 
 c = {
   title: "Bain de minuit",
