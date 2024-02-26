@@ -14,7 +14,7 @@ puts "Creating users..."
 User.create!(
   email: "ludo.belec@yahoo.com",
   password: "password123",
-  first_name: "Ludovuc",
+  first_name: "Ludovic",
   last_name: "Belec",
   description: "Je suis un amateur d'art d'une trentaine d'années vivant en région parisienne."
 )

@@ -1,5 +1,9 @@
-<div class="row m-4">
-  <h1 class="mb-3 color-blue"><%= current_user.first_name %>'s dashboard</h1>
+<div class="row my-3">
+  <div style="width: 550px" class="flex ps-0 pb-2 thick-underline mb-5">
+    <h1 class="m-0 color-blue p-0 inline"><%= current_user.first_name %>'s dashboard</h1>
+  </div>
+
+      <%# Tab titles %>
 
       <ul class="nav nav-tabs" id="myTab" role="tablist">
         <li class="nav-item" role="presentation">
@@ -13,14 +17,16 @@
         </li>
       </ul>
 
-      <div class="tab-content" id="myTabContent">
+      <div class="tab-content p-0" id="myTabContent">
+
+        <%# First tab: User's items - items owned by user %>
 
         <div class="tab-pane fade show active" id="items-tab-pane" role="tabpanel" aria-labelledby="items-tab" tabindex="0">
-          <div class="container mt-3">
+          <div class="mt-4">
 
-            <h2 class="color-blue">My Items</h2>
+            <h2 class="color-blue mb-3">My Items</h2>
 
-            <button type="button" class="btn btn-primary text-white" data-bs-toggle="modal" data-bs-target="#addItemModal">
+            <button type="button" class="red-button mb-4" data-bs-toggle="modal" data-bs-target="#addItemModal">
               Add an item
             </button>
 
@@ -46,7 +52,7 @@
                       <div class="content-card">
 
                         <div class="my-item-card-title">
-                          <h3><%= item.title %></h3>
+                          <h3 class="m-0"><%= item.title %></h3>
                         </div>
 
                         <div class="my-item-card-description">
@@ -62,13 +68,15 @@
             <% else %>
               <p>You don't have any items yet.</p>
             <% end %>
-            <%= link_to 'Back', items_path, class:"btn btn-secondary" %>
+            <%= link_to 'Back', items_path, class:"btn btn-secondary mt-4" %>
           </div>
         </div>
 
+        <%# Second tab: User's bookings - bookings made by user %>
+
         <div class="tab-pane fade" id="bookings-tab-pane" role="tabpanel" aria-labelledby="bookings-tab" tabindex="0">
-          <div class="container">
-            <h2 class="m-3 color-blue">My bookings</h2>
+          <div class="mt-4">
+            <h2 class="my-4 color-blue">My bookings</h2>
             <div class="cards">
                 <%# <div class="col-6"> %>
                   <% @my_bookings.each do |booking| %>
@@ -76,7 +84,7 @@
                       <div class="card shadow-sm">
                         <div class="card-img-top image-container-booking border-bottom">
                           <% booking.item.photos.each do |photo| %>
-                          <%= cl_image_tag photo.key, id: "custom-img", crop: :fill, height: 200, width: 200 %>
+                          <%= cl_image_tag photo.key, id: "custom-bookindex-img", crop: :fill, height: 200, width: 200 %>
                           <% end %>
                         </div>
                         <div class="card-body p-0 bg-light">
@@ -96,10 +104,12 @@
           </div>
         </div>
 
+        <%# Third tab: User's booked items - Booking requests received by user %>
+
         <div class="tab-pane fade" id="booked-items-tab-pane" role="tabpanel" aria-labelledby="booked-items-tab" tabindex="0">
 
-            <div class="container">
-              <h2 class="m-3 color-blue">My booked items</h2>
+            <div class="mt-4">
+              <h2 class="my-4 color-blue">My booked items</h2>
               <div class="cards">
                     <% @all_bookings.each do |booking| %>
                       <% if booking.item.user == current_user %>

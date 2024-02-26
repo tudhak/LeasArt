@@ -1,14 +1,14 @@
 <%= simple_form_for(item, html: {multipart: true}) do |f| %>
   <div>
-    <%= f.input :title, label: false, placeholder: "Title" %>
-    <%= f.input :artist, label: false, placeholder: "Artist" %>
-    <%= f.input :photos, as: :file, input_html: { multiple: true } %>
-    <%= f.input :description, label: false, placeholder: "Description" %>
-    <%= f.input :category, collection: Item::CATEGORY_NAME %>
-    <%= f.input :price, label: false, placeholder: "Price" %>
-    <%= f.input :address, label: false, placeholder: "Address" %>
+    <%= f.input :title, label: false, placeholder: "Title", input_html: { class: "bg-white" } %>
+    <%= f.input :artist, label: false, placeholder: "Artist", input_html: { class: "bg-white" } %>
+    <%= f.input :photos, as: :file, input_html: { multiple: true, class: "bg-white" } %>
+    <%= f.input :description, label: false, placeholder: "Description", input_html: { class: "bg-white" } %>
+    <%= f.input :category, collection: Item::CATEGORY_NAME, input_html: { class: "bg-white" } %>
+    <%= f.input :price, label: false, placeholder: "Price", input_html: { class: "bg-white" } %>
+    <%= f.input :address, label: false, placeholder: "Address", input_html: { class: "bg-white" } %>
   </div>
   <div>
-    <%= f.submit class: 'btn btn-primary text-white' %>
+    <%= f.submit class: 'red-button' %>
   </div>
 <% end %>

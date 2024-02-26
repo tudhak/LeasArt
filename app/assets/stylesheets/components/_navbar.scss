@@ -129,3 +129,8 @@
 .navbar-lewagon .navbar-brand img {
   width: 40px;
 }
+
+.nav-item .active {
+  background-color: $fancy-red !important;
+  color: #fff !important;
+}

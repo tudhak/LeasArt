@@ -1,11 +1,11 @@
 <div class='mt-3'>
   <div class='card-product card-height-modifier d-flex'>
-    <div class="image-container me-2"> <!-- Previously me-5 -->
+    <div class="image-container me-5"> <!-- Previously me-5 -->
       <% @item.photos.each do |photo| %>
       <%= cl_image_tag photo.key, class: "img-fluid", crop: :fill %>
       <% end %>
     </div>
-    <div class='card-product-infos'> <!-- Previously flex-grow-1 -->
+    <div class='card-product-infos flex-grow-1'>
       <div>
         <h2 class="card-title color-blue"><%=@item.title.capitalize%></h2>
         <p class="artist-show-display thick-underline bold-text color-blue"><%=@item.artist.capitalize%></p>
@@ -17,7 +17,7 @@
         </div>
         <div class="flex align-items-center color-blue">
           <p style="width: 90px" class="mt-3 mb-0">Owner: </p>
-          <p class="mt-3 mb-0"><%=@item.user.first_name.capitalize%> <%=@item.user.last_name.capitalize%></p>
+          <p class="mt-3 mb-0"><%=@item.user.first_name%> <%=@item.user.last_name%></p>
         </div>
         <div class="flex align-items-center color-blue">
           <p style="width: 90px" class="mt-3 mb-0">Address: </p>
@@ -52,7 +52,7 @@
           </div>
         </div>
       <% end %>
-    <div class="col-4 px-4 pb-3 bg-white">
+    <div class="col-4 px-4 py-3 bg-white">
       <%= link_to 'Back', items_path, class:"btn btn-secondary" %>
     </div>
   </div>

@@ -5,7 +5,7 @@
           <div class="card mb-4 shadow-sm booking-container">
             <div class="card-img-top image-container-booking border-bottom">
               <% @booking.item.photos.each do |photo| %>
-              <%= cl_image_tag photo.key, id: "custom-img", crop: :fill, class:"w-100 h-100" %>
+              <%= cl_image_tag photo.key, id: "custom-bookshow-img", crop: :fill, class:"w-100 h-100" %>
               <% end %>
             </div>
             <div class="card-body p-0">
