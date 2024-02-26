@@ -21,26 +21,26 @@
                 <div class="flat-card-content">
                   <%= link_to item_path(item) do %>
                     <div class="d-flex flex-column justify-content-between h-100">
-                      <div class="flat-card-title">
+                      <div class="flat-card-title border-bottom">
                         <h4 style="font-size: 20px" class="color-blue">
                         <strong><%= item.title %></strong></h4>
                       </div>
 
-                      <p style="font-size: 16px" class="color-blue">Artist : <%= item.artist %></p>
-                      <p style="font-size: 14px" class="color-blue">Address : <%= item.address %></p>
+                      <p style="font-size: 16px" class="color-blue pt-2">Artist: <%= item.artist %></p>
+                      <p style="font-size: 14px" class="color-blue">Address: <%= item.address %></p>
 
                       <div class="flex justify-content-between">
-                        <div class="flex align-items-center">
-                          <p class="color-blue">
+                        <div class="flex align-items-center thick-underline">
+                          <p class="color-blue m-0">
                             <i class="<%= Item::CATEGORY[Item::CATEGORY_NAME.index(item.category)][:icon] %>"></i>
                             <span ><%= item.category %></span>
                           </p>
                         </div>
 
-                        <div class="flex align-items-center ms-3">
-                          <p class="color-blue">
+                        <div class="flex align-items-center ms-3 thick-underline">
+                          <p class="color-blue m-0">
                             <i class="fa-solid fa-euro-sign"></i>
-                            <span><%= item.price.round() %> / day </span>
+                            <span><strong><%= item.price.round() %></strong> / day </span>
                           </p>
                         </div>
                       </div>
