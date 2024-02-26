@@ -4,12 +4,12 @@
       <%= form_with url: items_path, method: :get, class: "d-flex" do %>
         <%= text_field_tag :address,
           params[:address],
-          class: "form-control mx-1",
+          class: "form-control mx-1 bg-white",
           placeholder: "Location"
         %>
         <%= text_field_tag :category,
           params[:category],
-          class: "form-control mx-1",
+          class: "form-control mx-1 bg-white",
           # style: "width:150px",
           placeholder: "Category"
         %>
@@ -20,16 +20,16 @@
         %>
         <%= text_field_tag :artist,
           params[:artist],
-          class: "form-control  mx-1",
+          class: "form-control mx-1 bg-white",
           placeholder: "Artist"
         %>
         <%= text_field_tag :title,
           params[:title],
-          class: "form-control  mx-1",
+          class: "form-control mx-1 bg-white",
           placeholder: "Name"
         %>
 
-        <%= submit_tag "Search", name: "", class: "btn btn-primary text-white" %>
+        <%= submit_tag "Search", class: "btn btn-primary text-white" %>
       <% end %>
     </div>
   </div>

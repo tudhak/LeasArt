@@ -19,3 +19,11 @@ body {
 .inner-content {
   padding: 30px 0;
 }
+
+.white-box {
+  background-color: #fff; // class kept to avoid overriding behaviour of Bootstrap classes
+}
+
+.bold-text {
+  font-weight: bold;
+}
