@@ -54,7 +54,7 @@ art1 = {
   artist: "Timothey Laughn",
   address: "15, rue dupin 75006 Paris"
 }
-img1 = "tableau2-resized.jpg"
+img1 = "app/assets/images/tableau2-resized.jpg"
 
 art2 = {
   title: "Fallen sky",
@@ -65,7 +65,7 @@ art2 = {
   artist: "Edwin Goulainger",
   address: "31, boulevard de la republique 92250 La-Garenne-Colombes"
 }
-img2 = "tableau1-resized.jpg"
+img2 = "app/assets/images/tableau1-resized.jpg"
 
 art3 = {
   title: "Velvet shutters",
@@ -76,40 +76,40 @@ art3 = {
   artist: "Eve D. Kim",
   address: "15, rue d'argenteuil 75001 Paris"
 }
-img3 = "tableau3-resized.jpg"
+img3 = "app/assets/images/tableau3-resized.jpg"
 
 art4 = {
   title: "Competing shores",
   description: "An esoteric representation of the forces of nature in a myriad of colors.",
   price: 36,
   user_id: User.first.id,
-  category: Item::CATEGORY[1][:name],
+  category: Item::CATEGORY.first[:name],
   artist: "Kaylee Winsbourgh",
   address: "46, rue de nanterre, 92600 Asnières-sur-seine"
 }
-img4 = "tableau4-resized.jpg"
+img4 = "app/assets/images/tableau4-resized.jpg"
 
 art5 = {
   title: "Another oppressive doubt",
   description: "As its name suggests, it is impossible to remain unmoved by this superbly executed work.",
   price: 40,
   user_id: User.first.id,
-  category: Item::CATEGORY[2][:name],
+  category: Item::CATEGORY.first[:name],
   artist: "KGLRF+00",
   address: "5, rue erard 75012 Paris"
 }
-img5 = "tableau5-resized.jpg"
+img5 = "app/assets/images/tableau5-resized.jpg"
 
 art6 = {
   title: "Ancient times",
   description: "A photograph bathed in classicism and imbued with certain know-how.",
   price: 35,
   user_id: User.first.id + 2,
-  category: Item::CATEGORY[1][:name],
+  category: Item::CATEGORY[5][:name],
   artist: "Saylee Arwaagh",
   address: "100, avenue d'argenteuil 92600 Asnières-sur-seine"
 }
-img6 = "photo1-resized.jpg"
+img6 = "app/assets/images/photo1-resized.jpg"
 
 art7 = {
   title: "Exotic sunset",
@@ -117,11 +117,11 @@ art7 = {
   A photograph by Kapoor Awalsh that transports you and reconnects you to mother earth.",
   price: 19,
   user_id: User.first.id + 1,
-  category: Item::CATEGORY[2][:name],
+  category: Item::CATEGORY[5][:name],
   artist: "Kapoor Awalsh",
   address: "98, boulevard voltaire 75011 Paris"
 }
-img7 = "photo2-resized.jpg"
+img7 = "app/assets/images/photo2-resized.jpg"
 
 art8 = {
   title: "Wise man",
@@ -132,67 +132,89 @@ art8 = {
   artist: "Ostakios Problotis",
   address: "4 rue bapst 92600 Asnières-sur-seine"
 }
-img8 = "sculpture1-resized.jpg"
+img8 = "app/assets/images/sculpture1-resized.jpg"
 
 art9 = {
   title: "Bronze beef",
   description: "A strikingly realistic sculpture, made from exceptional materials by a young rising artist.",
   price: 642,
   user_id: User.last.id,
-  category: Item::CATEGORY[4][:name],
+  category: Item::CATEGORY[3][:name],
   artist: "Akwele Dianga",
   address: "98 boulevard malesherbes 75017 paris"
 }
-img9 = "sculpture2-resized.jpg"
+img9 = "app/assets/images/sculpture2-resized.jpg"
 
 art10 = {
   title: "Armchair #26",
   description: "A unique armchair from the brand new collection of the essential master of Italian style.",
   price: 920,
   user_id: User.last.id,
-  category: Item::CATEGORY[4][:name],
+  category: Item::CATEGORY[2][:name],
   artist: "Giorgio Pozzaletto",
   address: "108, rue Saint Honoré 75001 Paris"
 }
-img10 = "furniture1-resized.jpg"
+img10 = "app/assets/images/furniture1-resized.jpg"
 
 art11 = {
   title: "Iconic leather sofa",
   description: "A piece that needs no introduction, which can alone dress up your room and provide you with absolute comfort.",
   price: 1390,
   user_id: User.first.id + 1,
-  category: Item::CATEGORY[3][:name],
+  category: Item::CATEGORY[2][:name],
   artist: "McTerrance Furniture Inc.",
   address: "51, rue de l'aigle 92250 La Garenne Colombes"
 }
-img11 = "furniture2-resized.jpg"
+img11 = "app/assets/images/furniture2-resized.jpg"
 
 art12 = {
   title: "Collection of modern vases",
   description: "Ideal for reviving any of your rooms, these vases will adapt to any atmosphere, with the most absolute discretion.",
   price: 45,
   user_id: User.first.id + 2,
-  category: Item::CATEGORY[0][:name],
+  category: Item::CATEGORY[1][:name],
   artist: "McTerrance Furniture Inc.",
   address: "63, rue jean bonal 92250 La Garenne Colombes"
 }
-img12 = "decoration1-resized.jpg"
+img12 = "app/assets/images/decoration1-resized.jpg"
 
 art13 = {
   title: "Trio of French handmade pillows",
   description: "Known throughout the world, the French Cushion company comes to your home, to bring you good taste, good manners and good comfort.",
   price: 29,
   user_id: User.first.id + 2,
-  category: Item::CATEGORY[5][:name],
+  category: Item::CATEGORY[1][:name],
   artist: "Le coussin Français",
-  address: "90 avenue des Champs Elysées 75008 Paris "
+  address: "90 avenue des Champs Elysées 75008 Paris"
 }
-img13 = "decoration2-resized.jpg"
+img13 = "app/assets/images/decoration2-resized.jpg"
 
-items = [art1, art2, art3, art4, art5, art6, art7, art8, art9, art10, art11, art12, art13]
-items_img = [img1, img2, img3, img4, img5, img6, img7, img8, img9, img10, img11, img12, img13]
+art14 = {
+  title: "Prime Golden bracelets",
+  description: "Sherazad shows us once again that sophistication can rhyme with exquisite detail yet simplicity.",
+  price: 29,
+  user_id: User.first.id + 2,
+  category: Item::CATEGORY[4][:name],
+  artist: "Sherazad creations",
+  address: "98 rue du Dôme, 92100 Boulogne-Billancourt"
+}
+img14 = "app/assets/images/jewels2-resized.jpg"
 
-items_img.each_index do |img_path, index|
+art15 = {
+  title: "The massive ring",
+  description: "Impress your peers with this stunning ring that will make your hands shine brightly.",
+  price: 29,
+  user_id: User.first.id + 2,
+  category: Item::CATEGORY[4][:name],
+  artist: "Sherazad creations",
+  address: "65 avenue de Paris 94300 Vincennes"
+}
+img15 = "app/assets/images/jewels1-resized.jpg"
+
+items = [art1, art2, art3, art4, art5, art6, art7, art8, art9, art10, art11, art12, art13, art14, art15]
+items_img = [img1, img2, img3, img4, img5, img6, img7, img8, img9, img10, img11, img12, img13, img14, img15]
+
+items_img.each_with_index do |img_path, index|
   item = Item.new(items[index])
   file = File.open(img_path)
   item.photos.attach(io: file, filename: "#{item[:title]}.jpg", content_type: "image/jpg")
