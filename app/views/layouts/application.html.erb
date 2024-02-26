@@ -47,8 +47,12 @@
       <div class="main-content">
         <div class="inner-content">
           <div class="container">
-            <p class="notice m-0"><%= notice %></p>
-            <p class="alert m-0"><%= alert %></p>
+            <% unless notice.nil? %>
+              <p class="alert alert-success m-0"><%= notice %></p>
+            <% end %>
+            <% unless alert.nil? %>
+              <p class="alert alert-danger m-0"><%= alert %></p>
+            <% end %>
             <%= yield %>
           </div>
         </div>
