@@ -50,23 +50,18 @@
                   <%= link_to item do %>
                     <div class="my-item-card mt-3" style="background-image: url(<%= cl_image_path item.photos.first.key, crop: :fill %>)">
                       <div class="content-card">
-
                         <div class="my-item-card-title">
                           <h3 class="m-0"><%= item.title %></h3>
                         </div>
-
                         <div class="my-item-card-description">
-
                         </div>
-
                       </div>
-
                       </div>
                     <% end %>
                   <% end %>
                 </div>
             <% else %>
-              <p>You don't have any items yet.</p>
+              <p class="filler">You don't have any items yet.</p>
             <% end %>
           </div>
         </div>
@@ -75,7 +70,13 @@
 
         <div class="tab-pane fade" id="bookings-tab-pane" role="tabpanel" aria-labelledby="bookings-tab" tabindex="0">
           <div class="mt-4">
-            <h2 class="my-4 color-blue">My bookings</h2>
+            <%# Checking if the current user made bookings %>
+            <%# If this is the case, normal display. If there are no bookings to display, display a large bottom padding so that container displays properly on top of the page %>
+            <% if current_user.bookings.any? %>
+              <h2 class="my-4 color-blue">My bookings</h2>
+            <% else %>
+              <h2 class="my-4 color-blue filler">My bookings</h2>
+            <% end %>
             <div class="cards">
                 <%# <div class="col-6"> %>
                   <% @my_bookings.each do |booking| %>
@@ -83,7 +84,7 @@
                       <div class="card shadow-sm">
                         <div class="card-img-top image-container-booking border-bottom">
                           <% booking.item.photos.each do |photo| %>
-                          <%= cl_image_tag photo.key, id: "custom-bookindex-img", crop: :fill, height: 200, width: 200 %>
+                          <%= cl_image_tag photo.key, class: "custom-bookindex-img", crop: :fill %>
                           <% end %>
                         </div>
                         <div class="card-body p-0 bg-light">
@@ -108,31 +109,37 @@
         <div class="tab-pane fade" id="booked-items-tab-pane" role="tabpanel" aria-labelledby="booked-items-tab" tabindex="0">
 
             <div class="mt-4">
-              <h2 class="my-4 color-blue filler">My booked items</h2>
+              <%# Checking if someone booked one if the items of the current user %>
+              <%# If this is the case, normal display. If there are no booked items to display, display a large bottom padding so that container displays properly on top of the page %>
+              <% if (@all_bookings.map { |booking| booking.item.user.id }.include?(current_user.id)) %>
+                <h2 class="my-4 color-blue">My booked items</h2>
+              <% else %>
+                <h2 class="my-4 color-blue filler">My booked items</h2>
+              <% end %>
               <div class="cards">
-                    <% @all_bookings.each do |booking| %>
-                      <% if booking.item.user == current_user %>
-                        <%= link_to my_booked_item_path(booking) do %>
-                          <div class="card shadow-sm mb-4">
-                            <div class="card-img-top image-container-booking border-bottom">
-                              <% booking.item.photos.each do |photo| %>
-                                <%= cl_image_tag photo.key, id: "custom-img", crop: :fill, height: 200, width: 200 %>
-                              <% end %>
-                            </div>
-                            <div class="card-body p-0 bg-light">
-                              <h5 class="card-title p-3 m-0 border-bottom bg-primary text-white"><strong><%= booking.item.title %></strong></h5>
-                              <ul class="list-group list-group-flush">
-                                <li class="list-group-item bg-white"><i class="fa-solid fa-user"></i> <%= booking.user.first_name %> <%= booking.user.last_name %></li>
-                                <li class="list-group-item bg-white"><i class="fa-solid fa-calendar-days"></i> <%= booking.start_date.strftime("%d/%m/%Y") %></li>
-                                <li class="list-group-item bg-white"><i class="fa-solid fa-calendar-days"></i> <%= booking.end_date.strftime("%d/%m/%Y") %></li>
-                                <li class="list-group-item bg-white"><i class="fa-solid fa-tag"></i> <%= booking.total_price.round %> <i class="fa-solid fa-euro-sign"></i> </li>
-                                <li class="list-group-item bg-white"><i class="fa-solid fa-bars-progress"></i> <%= booking.status.capitalize %></li>
-                              </ul>
-                            </div>
-                          </div>
-                        <% end %>
-                      <% end %>
+                <% @all_bookings.each do |booking| %>
+                  <% if booking.item.user == current_user %>
+                    <%= link_to my_booked_item_path(booking) do %>
+                      <div class="card shadow-sm mb-4">
+                        <div class="card-img-top image-container-booking border-bottom">
+                          <% booking.item.photos.each do |photo| %>
+                            <%= cl_image_tag photo.key, class: "custom-bookindex-img", crop: :fill %>
+                          <% end %>
+                        </div>
+                        <div class="card-body p-0 bg-light">
+                          <h5 class="card-title p-3 m-0 border-bottom bg-primary text-white"><strong><%= booking.item.title %></strong></h5>
+                          <ul class="list-group list-group-flush">
+                            <li class="list-group-item bg-white"><i class="fa-solid fa-user"></i> <%= booking.user.first_name %> <%= booking.user.last_name %></li>
+                            <li class="list-group-item bg-white"><i class="fa-solid fa-calendar-days"></i> <%= booking.start_date.strftime("%d/%m/%Y") %></li>
+                            <li class="list-group-item bg-white"><i class="fa-solid fa-calendar-days"></i> <%= booking.end_date.strftime("%d/%m/%Y") %></li>
+                            <li class="list-group-item bg-white"><i class="fa-solid fa-tag"></i> <%= booking.total_price.round %> <i class="fa-solid fa-euro-sign"></i> </li>
+                            <li class="list-group-item bg-white"><i class="fa-solid fa-bars-progress"></i> <%= booking.status.capitalize %></li>
+                          </ul>
+                        </div>
+                      </div>
                     <% end %>
+                  <% end %>
+                <% end %>
               </div>
             </div>
         </div>

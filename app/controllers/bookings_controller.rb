@@ -17,7 +17,7 @@ class BookingsController < ApplicationController
   def dashboard
     @my_items = current_user.items
     @my_bookings = current_user.bookings
-    @all_bookings = Booking.includes(:item)
+    @all_bookings = Booking.includes(item: :user)
     @item = Item.new
   end
 
