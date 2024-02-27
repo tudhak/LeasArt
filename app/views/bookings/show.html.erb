@@ -40,7 +40,16 @@
             <i class="fa-solid fa-xmark delete-button color-red"></i>
             <% end %>
           </div>
-          <%= link_to 'Back', dashboard_path, class:"blue-button" %>
+          <a class="blue-button" href="/dashboard#bookings-tab">Back</a>
       </div>
   </div>
 </div>
+
+<%# <script>
+  const testLink = document.getElementById("back-dash-bookings");
+  console.log(window.location.hash);
+  testLink.addEventListener("click", () => {
+    window.location.hash = "#" + (testLink.href.split("#")[1]);
+    console.log(window.location.hash);
+  })
+</script> %>

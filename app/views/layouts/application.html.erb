@@ -11,6 +11,17 @@
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
+
+    <%# Test script to change bootstrap tab after clicking corresponding links %>
+    <script>
+      document.addEventListener("DOMContentLoaded", (e) => {
+        e.preventDefault();
+        const hash = window.location.hash;
+        const trigger = document.querySelector(hash);
+        const tab = new bootstrap.Tab(trigger);
+        tab.show();
+      });
+    </script>
   </head>
 
   <body>
