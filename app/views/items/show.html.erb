@@ -33,7 +33,7 @@
     <% if current_user && @item.user == current_user %>
       <div class='card-body bg-white px-4'>
         <div class="d-flex justify-content-between">
-          <%= link_to 'Delete', item_path(@item), data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' }, class:"btn btn-primary text-white" %>
+          <%= link_to 'Delete', item_path(@item), data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' }, class:"red-button" %>
         </div>
       </div>
       <div class="col-6 p-4 pt-0 bg-white">
@@ -53,7 +53,7 @@
         </div>
       <% end %>
     <div class="col-4 px-4 py-3 bg-white">
-      <%= link_to 'Back', items_path, class:"btn btn-secondary" %>
+      <%= link_to 'Back', items_path, class:"blue-button" %>
     </div>
   </div>
 

@@ -2,7 +2,7 @@
   <div class="row m-4 justify-content-center">
     <h1 class="mb-4 text-center color-blue">My booking details</h1>
       <div class="col-6">
-          <div class="card mb-4 shadow-sm booking-container">
+          <div class="card mb-5 shadow-sm booking-container">
             <div class="card-img-top image-container-booking border-bottom">
               <% @booking.item.photos.each do |photo| %>
               <%= cl_image_tag photo.key, id: "custom-bookshow-img", crop: :fill, class:"w-100 h-100" %>
@@ -34,7 +34,7 @@
             <i class="fa-solid fa-xmark delete-button color-red"></i>
             <% end %>
           </div>
-          <%= link_to 'Back', dashboard_path, class:"btn btn-secondary" %>
+          <%= link_to 'Back', dashboard_path, class:"blue-button" %>
       </div>
   </div>
 </div>
