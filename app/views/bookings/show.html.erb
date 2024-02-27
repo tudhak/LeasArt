@@ -26,7 +26,13 @@
               <ul class="list-group list-group-flush">
                 <li class="list-group-item bg-white">Start date: <%= @booking.start_date.strftime("%d/%m/%Y") %></li>
                 <li class="list-group-item bg-white">End date: <%= @booking.end_date.strftime("%d/%m/%Y") %></li>
-                <li class="list-group-item bg-white">Status: <%= @booking.status %></li>
+                <% if @booking.status == "Pending" %>
+                  <li class="list-group-item bg-white color-pending">Status: <strong><%= @booking.status %></strong></li>
+                <% elsif @booking.status == "Accepted" %>
+                  <li class="list-group-item bg-white color-accepted">Status: <strong><%= @booking.status %></strong></li>
+                <% elsif @booking.status == "Rejected" %>
+                  <li class="list-group-item bg-white color-rejected">Status: <strong><%= @booking.status %></strong></li>
+                <% end %>
                 <li class="list-group-item bg-white">Booking total price: <i class="fa-solid fa-euro-sign"></i> <%= @booking.total_price.round() %></li>
               </ul>
             </div>

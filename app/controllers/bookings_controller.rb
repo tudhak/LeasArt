@@ -3,7 +3,7 @@ class BookingsController < ApplicationController
 
   def create
     @booking = Booking.new(booking_params)
-    @booking.status = "pending"
+    @booking.status = "Pending"
     @booking.item = @item
     @booking.user = current_user
     @booking.total_price = ((@booking.end_date - @booking.start_date) / 86400 ) * @item.price
@@ -37,13 +37,13 @@ class BookingsController < ApplicationController
 
   def accept
     @booking = Booking.find(params[:id])
-    @booking.update(status: "accepted")
+    @booking.update(status: "Accepted")
     redirect_to my_booked_item_path(@booking), notice: "Status updated to #{@booking.status}"
   end
 
   def reject
     @booking = Booking.find(params[:id])
-    @booking.update(status: "rejected")
+    @booking.update(status: "Rejected")
     redirect_to my_booked_item_path(@booking), notice: "Status updated to #{@booking.status}"
   end
 
