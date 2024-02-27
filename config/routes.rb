@@ -26,6 +26,4 @@ Rails.application.routes.draw do
 
   get "/dashboard", to: "bookings#dashboard"
 
-  # Defines the root path route ("/")
-  # root "posts#index"
 end
