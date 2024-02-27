@@ -9,8 +9,8 @@
         <p>You are going to decline <%= @booking.user.first_name %> <%= @booking.user.last_name %>'s booking request</p>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <%= link_to 'Reject booking', reject_booking_path(@booking), data: {turbo_method: :post}, class:"btn btn-danger text-white" %>
+        <button type="button" class="blue-button" data-bs-dismiss="modal">Close</button>
+        <%= link_to 'Reject booking', reject_booking_path(@booking), data: {turbo_method: :post}, class:"red-button reject-button" %>
       </div>
     </div>
   </div>

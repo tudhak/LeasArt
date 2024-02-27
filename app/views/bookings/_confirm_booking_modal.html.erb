@@ -6,11 +6,11 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <p>You are going to accept <%= @booking.user.first_name %> <%= @booking.user.last_name %>'s booking request</p>
+        <p>You are going to accept <strong><%= @booking.user.first_name %> <%= @booking.user.last_name %></strong>'s booking request.</p>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <%= link_to 'Accept booking', accept_booking_path(@booking), data: {turbo_method: :post}, class:"btn btn-success text-white" %>
+        <button type="button" class="blue-button" data-bs-dismiss="modal">Close</button>
+        <%= link_to 'Accept booking', accept_booking_path(@booking), data: {turbo_method: :post}, class:"red-button accept-button" %>
       </div>
     </div>
   </div>

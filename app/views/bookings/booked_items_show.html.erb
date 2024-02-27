@@ -1,9 +1,9 @@
 <div class="container">
   <div class="row m-4 justify-content-center">
-    <h1 class="mb-4 text-center color-blue">My booked item details</h1>
+    <h1 class="mb-5 text-center color-blue">My booking request details</h1>
       <div class="col-6">
           <% if @booking.item.user == current_user %>
-            <div class="card mb-4 shadow-sm booking-container">
+            <div class="card mb-5 shadow-sm booking-container">
               <div class="card-img-top image-container-booking border-bottom">
                 <% @booking.item.photos.each do |photo| %>
                 <%= cl_image_tag photo.key, id: "custom-img", crop: :fill %>
@@ -19,10 +19,6 @@
                   <li class="list-group-item bg-white">Artist: <%= @booking.item.artist %></li>
                   <li class="list-group-item bg-white">Artwork location: <%= @booking.item.address %></li>
                 </ul>
-                <div class="card-header bg-primary text-white"><strong>Owner</strong></div>
-                <ul class="list-group list-group-flush">
-                  <li class="list-group-item bg-white">Name: <%= current_user.first_name %> <%= current_user.last_name %></li>
-                </ul>
                 <div class="card-header bg-primary text-white"><strong>Booking details</strong></div>
                 <ul class="list-group list-group-flush">
                   <li class="list-group-item bg-white">Requestor name: <%= @booking.user.first_name %> <%= @booking.user.last_name %></li>
@@ -33,9 +29,9 @@
                 </ul>
                 <% if @booking.status == "pending" %>
                   <div class="bg-white d-flex border">
-                    <%= link_to 'Accept', accept_booking_path(@booking), class:"btn btn-success text-white flex-grow-1",
+                    <%= link_to 'Accept', accept_booking_path(@booking), class:"btn accept-button text-white flex-grow-1",
                     data: { bs_toggle: "modal", bs_target: "#confirmBookedItemModal" } %>
-                    <%= link_to 'Reject', reject_booking_path(@booking), class:"btn btn-danger text-white flex-grow-1",
+                    <%= link_to 'Reject', reject_booking_path(@booking), class:"btn reject-button text-white flex-grow-1",
                     data: { bs_toggle: "modal", bs_target: "#rejectBookedItemModal" } %>
                   </div>
                 <% end %>
@@ -44,7 +40,7 @@
           <% end %>
         <%= render 'bookings/confirm_booking_modal', booking: @booking %>
         <%= render 'bookings/reject_booking_modal', booking: @booking %>
-        <%= link_to 'Back', dashboard_path, class:"btn btn-secondary" %>
+        <%= link_to 'Back', dashboard_path, class:"blue-button" %>
       </div>
   </div>
 </div>

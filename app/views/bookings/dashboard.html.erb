@@ -112,9 +112,9 @@
               <%# Checking if someone booked one if the items of the current user %>
               <%# If this is the case, normal display. If there are no booked items to display, display a large bottom padding so that container displays properly on top of the page %>
               <% if (@all_bookings.map { |booking| booking.item.user.id }.include?(current_user.id)) %>
-                <h2 class="my-4 color-blue">My booked items</h2>
+                <h2 class="my-4 color-blue">My booking requests</h2>
               <% else %>
-                <h2 class="my-4 color-blue filler">My booked items</h2>
+                <h2 class="my-4 color-blue filler">My booking requests</h2>
               <% end %>
               <div class="cards">
                 <% @all_bookings.each do |booking| %>
