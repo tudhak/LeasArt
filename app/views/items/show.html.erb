@@ -42,7 +42,7 @@
           <%= render 'edit_form', item: @item %>
         </div>
       </div>
-      <%# Affichage du formulaire de réservation si l'utilisateur connecté ne orrespond pas au propriétaire %>
+      <%# Affichage du formulaire de réservation si l'utilisateur connecté ne correspond pas au propriétaire %>
       <% elsif current_user && @item.user != current_user %>
         <div class="col-6 p-4 bg-white">
           <div class="p-3 blue-card-border">

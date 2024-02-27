@@ -1,14 +1,14 @@
 <div data-controller="modal">
-<%= simple_form_for [item, booking] do |f| %>
+<%= simple_form_for [item, booking], data: { controller: "datepicker" } do |f| %>
   <%= f.input :start_date,
               as: :string,
-              input_html: { data: { controller: "datepicker", modal_target: "start"  } }
+              input_html: { data: { datepicker_target: "startDate", modal_target: "start" } }
                %>
   <%= f.input :end_date,
               as: :string,
-              input_html: { data: { controller: "datepicker", modal_target: "end" } } %>
+              input_html: { data: { datepicker_target: "endDate", modal_target: "end" } } %>
   <input type="hidden" value="<%= @item.price %>" data-modal-target="dayprice">
-  <button type="button" class="btn btn-primary text-white" data-bs-toggle="modal" data-bs-target="#bookingModal" data-action="click->modal#click">
+  <button type="button" class="red-button" data-bs-toggle="modal" data-bs-target="#bookingModal" data-action="click->modal#click">
     Book now
   </button>
   <%= render 'bookings/remote_modal', booking: booking %>
