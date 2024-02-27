@@ -13,7 +13,7 @@
           <button class="nav-link" id="bookings-tab" data-bs-toggle="tab" data-bs-target="#bookings-tab-pane" type="button" role="tab" aria-controls="bookings-tab-pane" aria-selected="false">My bookings</button>
         </li>
         <li class="nav-item" role="presentation">
-          <button class="nav-link" id="booked-items-tab" data-bs-toggle="tab" data-bs-target="#booked-items-tab-pane" type="button" role="tab" aria-controls="booked-items-tab-pane" aria-selected="false">My booked items</button>
+          <button class="nav-link" id="booked-items-tab" data-bs-toggle="tab" data-bs-target="#booked-items-tab-pane" type="button" role="tab" aria-controls="booked-items-tab-pane" aria-selected="false">My booking requests</button>
         </li>
       </ul>
 
@@ -93,7 +93,13 @@
                             <li class="list-group-item bg-white color-blue"><i class="fa-solid fa-calendar-days"></i> <%= booking.start_date.strftime("%d/%m/%Y") %></li>
                             <li class="list-group-item bg-white color-blue"><i class="fa-solid fa-calendar-days"></i> <%= booking.end_date.strftime("%d/%m/%Y") %></li>
                             <li class="list-group-item bg-white color-blue"><i class="fa-solid fa-tag"></i> <%= booking.total_price.round() %> <i class="fa-solid fa-euro-sign"></i> </li>
-                            <li class="list-group-item bg-white color-blue"><i class="fa-solid fa-bars-progress"></i> <%= booking.status.capitalize %></li>
+                            <% if booking.status == "Pending" %>
+                              <li class="list-group-item bg-white color-pending"><i class="fa-solid fa-bars-progress color-blue"></i> <strong><%= booking.status %></strong></li>
+                            <% elsif booking.status == "Accepted" %>
+                              <li class="list-group-item bg-white color-accepted"><i class="fa-solid fa-bars-progress color-blue"></i> <strong><%= booking.status %></strong></li>
+                            <% elsif booking.status == "Rejected" %>
+                              <li class="list-group-item bg-white color-rejected"><i class="fa-solid fa-bars-progress color-blue"></i> <strong><%= booking.status %></strong></li>
+                            <% end %>
                           </ul>
                         </div>
                       </div>
@@ -133,7 +139,13 @@
                             <li class="list-group-item bg-white"><i class="fa-solid fa-calendar-days"></i> <%= booking.start_date.strftime("%d/%m/%Y") %></li>
                             <li class="list-group-item bg-white"><i class="fa-solid fa-calendar-days"></i> <%= booking.end_date.strftime("%d/%m/%Y") %></li>
                             <li class="list-group-item bg-white"><i class="fa-solid fa-tag"></i> <%= booking.total_price.round %> <i class="fa-solid fa-euro-sign"></i> </li>
-                            <li class="list-group-item bg-white"><i class="fa-solid fa-bars-progress"></i> <%= booking.status.capitalize %></li>
+                            <% if booking.status == "Pending" %>
+                              <li class="list-group-item bg-white color-pending"><i class="fa-solid fa-bars-progress color-blue"></i> <strong><%= booking.status %></strong></li>
+                            <% elsif booking.status == "Accepted" %>
+                              <li class="list-group-item bg-white color-accepted"><i class="fa-solid fa-bars-progress color-blue"></i> <strong><%= booking.status %></strong></li>
+                            <% elsif booking.status == "Rejected" %>
+                              <li class="list-group-item bg-white color-rejected"><i class="fa-solid fa-bars-progress color-blue"></i> <strong><%= booking.status %></strong></li>
+                            <% end %>
                           </ul>
                         </div>
                       </div>
