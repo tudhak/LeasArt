@@ -157,3 +157,29 @@
         </div>
       </div>
 </div>
+
+<script>
+// setting tab history so that the page displays the previously displayed tab after page reload
+window.addEventListener("load", () => {
+  const itemsTab = document.getElementById("items-tab");
+  const itemsTabId = `#${itemsTab.id}`
+  itemsTab.addEventListener("click", () => {
+    window.location.hash = itemsTabId;
+    history.pushState(null, null, itemsTabId);
+  })
+
+ const bookingTab = document.getElementById("bookings-tab");
+  const bookingTabId = `#${bookingTab.id}`
+  bookingTab.addEventListener("click", () => {
+    window.location.hash = bookingTabId;
+    history.pushState(null, null, bookingTabId);
+  })
+
+  const requestsTab = document.getElementById("booked-items-tab");
+  const requestsTabId = `#${requestsTab.id}`
+  requestsTab.addEventListener("click", () => {
+    window.location.hash = requestsTabId;
+    history.pushState(null, null, requestsTabId);
+  })
+})
+</script>

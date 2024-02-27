@@ -14,9 +14,24 @@
 
     <%# Test script to change bootstrap tab after clicking corresponding links %>
     <script>
-      document.addEventListener("DOMContentLoaded", (e) => {
-        e.preventDefault();
+      // function changeTab() {
+      //   const hash = window.location.hash;
+      //   console.log(hash);
+      //   const trigger = document.querySelector(hash);
+      //   const tab = new bootstrap.Tab(trigger);
+      //   tab.show();
+      // }
+      // function ready(fn) {
+      //   if (document.readyState !== 'loading') {
+      //     fn();
+      //     return;
+      //   }
+      //   document.addEventListener('DOMContentLoaded', fn);
+      // }
+      // ready(changeTab);
+      document.addEventListener("DOMContentLoaded", () => {
         const hash = window.location.hash;
+        console.log(hash);
         const trigger = document.querySelector(hash);
         const tab = new bootstrap.Tab(trigger);
         tab.show();
