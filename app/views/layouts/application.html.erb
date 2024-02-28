@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Rbnb</title>
+    <title>LeasArt</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -11,32 +11,6 @@
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
-
-    <%# Test script to change bootstrap tab after clicking corresponding links %>
-    <script>
-      // function changeTab() {
-      //   const hash = window.location.hash;
-      //   console.log(hash);
-      //   const trigger = document.querySelector(hash);
-      //   const tab = new bootstrap.Tab(trigger);
-      //   tab.show();
-      // }
-      // function ready(fn) {
-      //   if (document.readyState !== 'loading') {
-      //     fn();
-      //     return;
-      //   }
-      //   document.addEventListener('DOMContentLoaded', fn);
-      // }
-      // ready(changeTab);
-      document.addEventListener("DOMContentLoaded", () => {
-        const hash = window.location.hash;
-        console.log(hash);
-        const trigger = document.querySelector(hash);
-        const tab = new bootstrap.Tab(trigger);
-        tab.show();
-      });
-    </script>
   </head>
 
   <body>
