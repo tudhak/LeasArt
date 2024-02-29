@@ -13,50 +13,44 @@ class ItemsController < ApplicationController
     artitems = Item.all
     tititems = Item.all
     @category = Item::CATEGORY_NAME
+
     if params[:query].present?
       sql_subquery = "title ILIKE :query
       OR artist ILIKE :query
       OR address ILIKE :query"
       @items = @items.where(sql_subquery, query: "%#{params[:query]}%")
 
-
     elsif params[:address].present? || params[:category].present? || params[:artist].present? || params[:title].present?
       (if params[:address].present?
-      addquery = "address ILIKE :address"
-      additems = @items.where(addquery, address: "%#{params[:address]}%")
-    end
-    if params[:category].present?
-      catquery = "category ILIKE :category"
-      catitems = @items.where(catquery, category: "%#{params[:category]}%")
-
-      @default = [params[:category]]
-
-      end
-      if params[:artist].present?
-        artquery = "artist ILIKE :artist"
-        artitems = @items.where(artquery, artist: "%#{params[:artist]}%")
-      end
-      if params[:title].present?
-        titquery = "title ILIKE :title"
-        tititems = @items.where(titquery, title: "%#{params[:title]}%")
-      end)
-    @items = additems & catitems & artitems & tititems
-
-    # elsif params[:category].present?
-    #   @category = params[:category].capitalize
-    #   @items = Item.where(category: @category)
+         addquery = "address ILIKE :address"
+         additems = @items.where(addquery, address: "%#{params[:address]}%")
+       end
+       if params[:category].present?
+         catquery = "category ILIKE :category"
+         catitems = @items.where(catquery, category: "%#{params[:category]}%")
+         @default = [params[:category]]
+       end
+       if params[:artist].present?
+         artquery = "artist ILIKE :artist"
+         artitems = @items.where(artquery, artist: "%#{params[:artist]}%")
+       end
+       if params[:title].present?
+         titquery = "title ILIKE :title"
+         tititems = @items.where(titquery, title: "%#{params[:title]}%")
+       end)
+      @items = additems & catitems & artitems & tititems
 
     else
       @items
     end
 
     @markers = @items.map do |item|
-    {
-      lat: item.latitude,
-      lng: item.longitude,
-      map_info_html: render_to_string(partial: "map_info", locals: {item: item} ),
-      id: item.id
-    }
+      {
+        lat: item.latitude,
+        lng: item.longitude,
+        map_info_html: render_to_string(partial: "map_info", locals: {item: item}),
+        id: item.id
+      }
     end
   end
 
